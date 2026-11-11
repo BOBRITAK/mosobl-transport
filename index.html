@@ -8,19 +8,19 @@
 <link rel='stylesheet' href='https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css'>
 <link rel='stylesheet' href='https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css'>
 <style>
-html,body{margin:0;height:100%;font-family:Arial,sans-serif}
+html,body{margin:0;height:100%;font-family:Segoe UI,Arial,sans-serif;background:#0b0e14;color:#e8ecf3}
 #app{display:flex;height:100%}
-#panel{width:340px;padding:14px;overflow:auto;background:#fff;z-index:1000}
+#panel{width:340px;padding:14px;overflow:auto;background:#10141d;border-right:1px solid #232b3a;z-index:1000}
 #map{flex:1}
-input,select{width:100%;padding:9px;margin:6px 0;box-sizing:border-box}
-label{display:block;margin:5px 0}
-.badge{color:#666;font-size:12px}
-.item{padding:6px 4px;border-bottom:1px solid #eee;cursor:pointer}
-button{padding:9px;margin:6px 0;width:100%}
-.st-label{background:rgba(255,255,255,.92);border:1px solid #999;color:#111;font-size:11px;padding:1px 4px;box-shadow:none;display:none}
+input,select{width:100%;padding:10px;margin:6px 0;box-sizing:border-box;background:#171e2b;border:1px solid #2a3448;border-radius:10px;color:#e8ecf3}
+label{display:block;margin:5px 0;color:#c6cdd9}
+.badge{color:#8b94a5;font-size:12px}
+.item{padding:8px 6px;border-bottom:1px solid #232b3a;cursor:pointer}
+button{padding:10px;margin:6px 0;width:100%;background:#1a2130;border:1px solid #2a3448;border-radius:10px;color:#e8ecf3;cursor:pointer} #routeBtn{background:#e30613;border-color:#e30613;color:#fff;font-weight:600} h1{font-size:20px;margin:4px 0 8px}
+.st-label{background:rgba(16,20,29,.92);border:1px solid #39435a;color:#e8ecf3;font-size:11px;padding:1px 4px;box-shadow:none;display:none}
 body.show-metro .label-metro{display:block}
 body.show-mcd .label-mcd{display:block}
-#route{white-space:pre-wrap;background:#f6f6f6;padding:8px;margin-top:8px;font-size:13px}
+#route{white-space:pre-wrap;background:#171e2b;border:1px solid #232b3a;border-radius:10px;padding:10px;margin-top:8px;font-size:13px;color:#dbe2ee}
 @media(max-width:700px){#app{flex-direction:column}#panel{width:auto;max-height:48%}#map{min-height:52%}}
 </style>
 </head>
@@ -56,8 +56,8 @@ body.show-mcd .label-mcd{display:block}
 <script>
 var map = L.map('map').setView([55.76, 37.62], 9);
 var baseEsri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {maxZoom: 19, maxNativeZoom: 18, updateWhenIdle: false, keepBuffer: 4, attribution: 'Tiles Esri'});
-var baseOsmFr = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {maxZoom: 19, maxNativeZoom: 18, updateWhenIdle: false, keepBuffer: 4, attribution: 'OpenStreetMap contributors, HOT OSM France'}).addTo(map);
-L.control.layers({'Esri Streets, без ключа': baseEsri, 'OSM HOT, запасное зеркало': baseOsmFr}, null, {position: 'topright'}).addTo(map);
+var baseOsmFr = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {maxZoom: 19, maxNativeZoom: 18, updateWhenIdle: false, keepBuffer: 4, attribution: 'OpenStreetMap contributors, HOT OSM France'});
+var baseDark = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {maxZoom: 19, maxNativeZoom: 18, updateWhenIdle: false, keepBuffer: 4, attribution: 'CARTO'}).addTo(map); L.control.layers({'Esri Streets, без ключа': baseEsri, 'OSM HOT, запасное зеркало': baseOsmFr}, null, {position: 'topright'}).addTo(map);
 var tileErrors = 0; baseEsri.on('tileerror', function(){ tileErrors++; if(tileErrors > 12 && map.hasLayer(baseEsri)){ map.removeLayer(baseEsri); baseOsmFr.addTo(map); } });
 function co(){ return {maxClusterRadius: function(z){ return z < 11 ? 80 : z < 13 ? 55 : 35; }, disableClusteringAtZoom: 14, spiderfyOnMaxZoom: true, showCoverageOnHover: false}; }
 var gMetro = L.layerGroup(), gMcc = L.layerGroup(), gMcd = L.layerGroup(), gRail = L.markerClusterGroup(co()), gBus = L.markerClusterGroup(co()), gProject = L.layerGroup(), gTransfer = L.layerGroup(), routeLayer = L.layerGroup();
@@ -80,7 +80,7 @@ while(true){ var cur = null, best = Infinity; Object.keys(states).forEach(functi
 var end = null, eb = Infinity; Object.keys(ends).forEach(function(k){ if(dist[k] !== undefined && dist[k] < eb){ eb = dist[k]; end = k; } });
 if(!end){ out.textContent = 'Маршрут в выбранном режиме транспорта не найден: линии этих станций не связаны без других видов транспорта.'; return; }
 var path = [], c = end; while(c){ path.unshift(states[c]); c = prevS[c]; }
-routeLayer.clearLayers(); var coords = path.map(function(s){ return [s.lat, s.lon]; }); L.polyline(coords, {color: '#fff', weight: 9, opacity: 0.9}).addTo(routeLayer); L.polyline(coords, {color: '#111', weight: 5}).addTo(routeLayer); map.fitBounds(L.latLngBounds(coords).pad(0.12));
+routeLayer.clearLayers(); var coords = path.map(function(s){ return [s.lat, s.lon]; }); L.polyline(coords, {color: '#fff', weight: 9, opacity: 0.9}).addTo(routeLayer); L.polyline(coords, {color: '#e30613', weight: 5}).addTo(routeLayer); map.fitBounds(L.latLngBounds(coords).pad(0.12));
 var transfers = 0, segs = [], curLine = null, curNames = [];
 path.forEach(function(s){ if(!curLine || s.line.id !== curLine.id){ if(curLine) segs.push(curLine.name + ' ' + curLine.ref + ': ' + curNames.join(' -> ')); if(curLine) transfers++; curLine = s.line; curNames = [s.name]; } else { curNames.push(s.name); } }); if(curLine) segs.push(curLine.name + ' ' + curLine.ref + ': ' + curNames.join(' -> '));
 out.textContent = 'Время в пути: примерно ' + Math.round(eb) + ' мин, расчётное, без расписания. Пересадок: ' + transfers + '. Станций в пути: ' + path.length + '.
