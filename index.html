@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Транспорт Подмосковья</title>
+<link rel='stylesheet' href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'>
+<link rel='stylesheet' href='https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css'>
+<link rel='stylesheet' href='https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css'>
+<style>
+html,body{margin:0;height:100%;font-family:Arial,sans-serif}
+#app{display:flex;height:100%}
+#panel{width:340px;padding:14px;overflow:auto;background:#fff;z-index:1000}
+#map{flex:1}
+input,select{width:100%;padding:9px;margin:6px 0;box-sizing:border-box}
+label{display:block;margin:5px 0}
+.badge{color:#666;font-size:12px}
+.item{padding:6px 4px;border-bottom:1px solid #eee;cursor:pointer}
+button{padding:9px;margin:6px 0;width:100%}
+.st-label{background:rgba(255,255,255,.92);border:1px solid #999;color:#111;font-size:11px;padding:1px 4px;box-shadow:none;display:none}
+body.show-metro .label-metro{display:block}
+body.show-mcd .label-mcd{display:block}
+#route{white-space:pre-wrap;background:#f6f6f6;padding:8px;margin-top:8px;font-size:13px}
+@media(max-width:700px){#app{flex-direction:column}#panel{width:auto;max-height:48%}#map{min-height:52%}}
+</style>
+</head>
+<body>
+<div id='app'>
+<aside id='panel'>
+<h1>Транспорт Подмосковья</h1>
+<p class='badge'>Станции стоят на своих линиях: координаты из OpenStreetMap, порядок следования и привязка к линии из data/lines.json, 20 линий, 420 станций, сверено по координатам, не по ближайшей ветке. Проектное не утверждено.</p>
+<input id='search' type='text' placeholder='Поиск станции...'>
+<div id='list'></div>
+<h3>Построить маршрут</h3>
+<input id='from' list='stationNames' placeholder='Откуда, например Одинцово'>
+<input id='to' list='stationNames' placeholder='Куда, например Лобня'>
+<datalist id='stationNames'></datalist>
+<select id='mode'><option value='metro'>Только метро</option><option value='metro_mcc'>Метро + МЦК</option><option value='metro_mcd'>Метро + МЦД</option><option value='all' selected>Все доступные виды</option></select>
+<button id='routeBtn'>Построить маршрут</button>
+<div id='route'>Маршрут считается по графу линий алгоритмом Дейкстры, время расчётное.</div>
+<label><input type='checkbox' id='ly-metro' checked> Метро</label>
+<label><input type='checkbox' id='ly-mcc' checked> МЦК</label>
+<label><input type='checkbox' id='ly-mcd' checked> МЦД</label>
+<label><input type='checkbox' id='ly-rail' checked> Электрички, остальные станции OSM</label>
+<label><input type='checkbox' id='ly-bus' checked> Автобусные остановки, зум 15+</label>
+<label><input type='checkbox' id='ly-project' checked> Проектируемые линии и станции</label>
+<label><input type='checkbox' id='ly-transfer' checked> Пересадочные узлы</label>
+<button id='addBtn'>Добавить свою проектную станцию, клик по карте</button>
+<button id='undoBtn'>Отменить последнюю свою станцию</button>
+</aside>
+<div id='map'></div>
+</div>
+<script src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'></script>
+<script src='https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js'></script>
+<script src='data/stations.js'></script><script src='data/lines.js'></script>
+<script>
+var map = L.map('map').setView([55.76, 37.62], 9);
+var baseEsri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {maxZoom: 19, maxNativeZoom: 18, updateWhenIdle: false, keepBuffer: 4, attribution: 'Tiles Esri'});
+var baseOsmFr = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {maxZoom: 19, maxNativeZoom: 18, updateWhenIdle: false, keepBuffer: 4, attribution: 'OpenStreetMap contributors, HOT OSM France'}).addTo(map);
+L.control.layers({'Esri Streets, без ключа': baseEsri, 'OSM HOT, запасное зеркало': baseOsmFr}, null, {position: 'topright'}).addTo(map);
+var tileErrors = 0; baseEsri.on('tileerror', function(){ tileErrors++; if(tileErrors > 12 && map.hasLayer(baseEsri)){ map.removeLayer(baseEsri); baseOsmFr.addTo(map); } });
+function co(){ return {maxClusterRadius: function(z){ return z < 11 ? 80 : z < 13 ? 55 : 35; }, disableClusteringAtZoom: 14, spiderfyOnMaxZoom: true, showCoverageOnHover: false}; }
+var gMetro = L.layerGroup(), gMcc = L.layerGroup(), gMcd = L.layerGroup(), gRail = L.markerClusterGroup(co()), gBus = L.markerClusterGroup(co()), gProject = L.layerGroup(), gTransfer = L.layerGroup(), routeLayer = L.layerGroup();
+map.addLayer(gMetro); map.addLayer(gMcc); map.addLayer(gMcd); map.addLayer(gRail); map.addLayer(gBus); map.addLayer(gProject); map.addLayer(gTransfer); map.addLayer(routeLayer);
+var styles = {metro: {color: '#fff', fillColor: '#e63312', fillOpacity: 1, weight: 2, radius: 7}, mcc: {color: '#fff', fillColor: '#f28c28', fillOpacity: 1, weight: 2, radius: 7}, mcd: {color: '#fff', fillColor: '#0078d4', fillOpacity: 1, weight: 2, radius: 6}, rail: {color: '#fff', fillColor: '#555', fillOpacity: 1, weight: 1, radius: 5}, bus: {color: '#fff', fillColor: '#2e9e4f', fillOpacity: 1, weight: 1, radius: 4}, project: {color: '#fff', fillColor: '#8e44ad', fillOpacity: 1, weight: 2, radius: 8}, transfer: {color: '#fff', fillColor: '#111', fillOpacity: 1, weight: 2, radius: 9}};
+var NETWORK = null, firstByName = {}, allNames = [];
+(window.STATIONS || []).forEach(function(s){ var kind = s.network === 'МЦК' ? 'mcc' : (s.type === 'metro' ? 'metro' : 'rail'); var m = L.circleMarker([s.lat, s.lon], styles.rail); m.bindPopup('<b>' + s.name + '</b><br>Станция из OpenStreetMap, слой электричек'); gRail.addLayer(m); });
+function allowed(mode, type){ if(mode === 'metro') return type === 'metro'; if(mode === 'metro_mcc') return type === 'metro' || type === 'mcc'; if(mode === 'metro_mcd') return type === 'metro' || type === 'mcd'; return true; }
+function hav(a, b){ var dLat = (b.lat - a.lat) * Math.PI / 180, dLon = (b.lon - a.lon) * Math.PI / 180, x = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(a.lat * Math.PI / 180) * Math.cos(b.lat * Math.PI / 180) * Math.sin(dLon / 2) * Math.sin(dLon / 2); return 6371 * 2 * Math.asin(Math.sqrt(x)); }
+function buildRoute(){
+var from = document.getElementById('from').value.trim(), to = document.getElementById('to').value.trim(), mode = document.getElementById('mode').value, out = document.getElementById('route');
+if(!NETWORK || !firstByName[from] || !firstByName[to]){ out.textContent = 'Станция не найдена в линиях сети. Выберите название из подсказок.'; return; }
+var states = {}, adj = {}; function addState(s, line){ var k = s.name + '|' + line.id; if(!states[k]){ states[k] = {key: k, name: s.name, lat: s.lat, lon: s.lon, line: line}; adj[k] = []; } return k; }
+NETWORK.lines.forEach(function(line){ if(!allowed(mode, line.type)) return; var prev = null; line.stations.forEach(function(s){ var k = addState(s, line); if(prev){ var a = states[prev], b = states[k], speed = line.type === 'mcd' ? 55 : line.type === 'mcc' ? 45 : 38, w = hav(a, b) / speed * 60 + 0.7; if(w < 1.2) w = 1.2; adj[prev].push({to: k, w: w}); adj[k].push({to: prev, w: w}); } prev = k; }); });
+var byName = {}; Object.keys(states).forEach(function(k){ if(!byName[states[k].name]) byName[states[k].name] = []; byName[states[k].name].push(k); });
+Object.keys(byName).forEach(function(n){ var arr = byName[n]; for(var i = 0; i < arr.length; i++) for(var j = 0; j < arr.length; j++) if(i !== j) adj[arr[i]].push({to: arr[j], w: 5}); });
+var dist = {}, prevS = {}, done = {}, starts = byName[from] || [], ends = {};
+(byName[to] || []).forEach(function(k){ ends[k] = 1; }); starts.forEach(function(k){ dist[k] = 0; });
+while(true){ var cur = null, best = Infinity; Object.keys(states).forEach(function(k){ if(!done[k] && dist[k] !== undefined && dist[k] < best){ best = dist[k]; cur = k; } }); if(cur === null) break; done[cur] = 1; if(ends[cur]) break; adj[cur].forEach(function(e){ var nd = dist[cur] + e.w; if(dist[e.to] === undefined || nd < dist[e.to]){ dist[e.to] = nd; prevS[e.to] = cur; } }); }
+var end = null, eb = Infinity; Object.keys(ends).forEach(function(k){ if(dist[k] !== undefined && dist[k] < eb){ eb = dist[k]; end = k; } });
+if(!end){ out.textContent = 'Маршрут в выбранном режиме транспорта не найден: линии этих станций не связаны без других видов транспорта.'; return; }
+var path = [], c = end; while(c){ path.unshift(states[c]); c = prevS[c]; }
+routeLayer.clearLayers(); var coords = path.map(function(s){ return [s.lat, s.lon]; }); L.polyline(coords, {color: '#fff', weight: 9, opacity: 0.9}).addTo(routeLayer); L.polyline(coords, {color: '#111', weight: 5}).addTo(routeLayer); map.fitBounds(L.latLngBounds(coords).pad(0.12));
+var transfers = 0, segs = [], curLine = null, curNames = [];
+path.forEach(function(s){ if(!curLine || s.line.id !== curLine.id){ if(curLine) segs.push(curLine.name + ' ' + curLine.ref + ': ' + curNames.join(' -> ')); if(curLine) transfers++; curLine = s.line; curNames = [s.name]; } else { curNames.push(s.name); } }); if(curLine) segs.push(curLine.name + ' ' + curLine.ref + ': ' + curNames.join(' -> '));
+out.textContent = 'Время в пути: примерно ' + Math.round(eb) + ' мин, расчётное, без расписания. Пересадок: ' + transfers + '. Станций в пути: ' + path.length + '.
+' + segs.join('
+');
+}
+document.getElementById('routeBtn').onclick = buildRoute;
+function drawProject(){ gProject.clearLayers(); L.polyline([[55.76,37.62],[55.761,37.857],[55.809,37.958],[55.751,38.003]], {color: '#e63312', dashArray: '8 6', weight: 4}).addTo(gProject); L.polyline([[56.012,37.482],[55.933,37.52],[55.76,37.62],[55.431,37.545]], {color: '#0078d4', dashArray: '8 6', weight: 4}).addTo(gProject); var saved = []; try{ saved = JSON.parse(localStorage.getItem('myProjectStations') || '[]'); }catch(e){} [{name: 'Балашиха (проект)', lat: 55.809, lng: 37.958, info: 'Проектная станция'}].concat(saved).forEach(function(s){ var m = L.circleMarker([s.lat, s.lng], styles.project); m.bindPopup('<b>' + s.name + '</b><br>Проектируемая станция<br>' + (s.info || '')); gProject.addLayer(m); }); }
+var adding = false; document.getElementById('addBtn').onclick = function(){ adding = true; this.textContent = 'Теперь кликните по карте...'; };
+map.on('click', function(e){ if(!adding) return; adding = false; document.getElementById('addBtn').textContent = 'Добавить свою проектную станцию, клик по карте'; var name = prompt('Название проектной станции:'); if(!name) return; var saved = []; try{ saved = JSON.parse(localStorage.getItem('myProjectStations') || '[]'); }catch(err){} saved.push({name: name, lat: e.latlng.lat, lng: e.latlng.lng, info: 'Создана пользователем, проектная'}); localStorage.setItem('myProjectStations', JSON.stringify(saved)); drawProject(); });
+document.getElementById('undoBtn').onclick = function(){ var saved = []; try{ saved = JSON.parse(localStorage.getItem('myProjectStations') || '[]'); }catch(e){} saved.pop(); localStorage.setItem('myProjectStations', JSON.stringify(saved)); drawProject(); };
+function toggle(id, layer){ document.getElementById(id).addEventListener('change', function(e){ if(e.target.checked) map.addLayer(layer); else map.removeLayer(layer); }); }
+toggle('ly-metro', gMetro); toggle('ly-mcc', gMcc); toggle('ly-mcd', gMcd); toggle('ly-rail', gRail); toggle('ly-bus', gBus); toggle('ly-project', gProject); toggle('ly-transfer', gTransfer);
+var busCache = {}; function loadBus(){ if(map.getZoom() < 15 || !document.getElementById('ly-bus').checked) return; var b = map.getBounds(), key = [b.getSouth().toFixed(3), b.getWest().toFixed(3), b.getNorth().toFixed(3), b.getEast().toFixed(3)].join(','); if(busCache[key]) return; busCache[key] = 1; var q = '[out:json][timeout:25];node[highway=bus_stop](' + b.getSouth() + ',' + b.getWest() + ',' + b.getNorth() + ',' + b.getEast() + ');out body 300;'; (function(d){ NETWORK = d; d.lines.forEach(function(line){ var coords = line.stations.map(function(s){ return [s.lat, s.lon]; }); var target = line.type === 'metro' ? gMetro : line.type === 'mcc' ? gMcc : gMcd; L.polyline(coords, {color: line.color, weight: 4, opacity: 0.95}).addTo(target); line.stations.forEach(function(s){ if(!firstByName[s.name]){ firstByName[s.name] = s; allNames.push(s.name); } var m = L.circleMarker([s.lat, s.lon], styles[line.type] || styles.mcd); m.bindPopup('<b>' + s.name + '</b><br>Линия: ' + line.name + ' ' + line.ref + '<br>Вид: ' + line.type + ', существующая<br>Источник координат: OpenStreetMap, порядок: открытый список линии'); m.bindTooltip(s.name, {permanent: true, direction: 'top', offset: [0, -8], className: 'st-label label-' + (line.type === 'mcd' ? 'mcd' : 'metro')}); target.addLayer(m); }); }); var dl = document.getElementById('stationNames'); allNames.sort().forEach(function(n){ var o = document.createElement('option'); o.value = n; dl.appendChild(o); }); (d.transfers || []).forEach(function(n){ var s = firstByName[n]; if(s){ var tm = L.circleMarker([s.lat, s.lon], styles.transfer); tm.bindPopup('<b>Пересадочный узел: ' + n + '</b><br>Одно название на нескольких линиях сети'); gTransfer.addLayer(tm); } }); drawProject(); applyZoom(); })(window.NETWORK);
+</script>
+</body>
+</html>
