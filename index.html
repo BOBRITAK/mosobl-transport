@@ -36,6 +36,7 @@ body.show-mcd .label-mcd{display:block}
 <input id='to' list='stationNames' placeholder='Куда, например Лобня'>
 <datalist id='stationNames'></datalist>
 <select id='mode'><option value='metro'>Только метро</option><option value='metro_mcc'>Метро + МЦК</option><option value='metro_mcd'>Метро + МЦД</option><option value='all' selected>Все доступные виды</option></select>
+<select id='routePref'><option value='fast' selected>Быстрый маршрут</option><option value='transfers'>Меньше пересадок</option></select>
 <button id='routeBtn'>Построить маршрут</button>
 <div id='route'>Маршрут считается по графу линий алгоритмом Дейкстры, время расчётное.</div>
 <label><input type='checkbox' id='ly-metro' checked> Метро</label>
@@ -68,12 +69,12 @@ var NETWORK = null, firstByName = {}, allNames = [];
 function allowed(mode, type){ if(mode === 'metro') return type === 'metro'; if(mode === 'metro_mcc') return type === 'metro' || type === 'mcc'; if(mode === 'metro_mcd') return type === 'metro' || type === 'mcd'; return true; }
 function hav(a, b){ var dLat = (b.lat - a.lat) * Math.PI / 180, dLon = (b.lon - a.lon) * Math.PI / 180, x = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(a.lat * Math.PI / 180) * Math.cos(b.lat * Math.PI / 180) * Math.sin(dLon / 2) * Math.sin(dLon / 2); return 6371 * 2 * Math.asin(Math.sqrt(x)); }
 function buildRoute(){
-var from = document.getElementById('from').value.trim(), to = document.getElementById('to').value.trim(), mode = document.getElementById('mode').value, out = document.getElementById('route');
+var from = document.getElementById('from').value.trim(), to = document.getElementById('to').value.trim(), mode = document.getElementById('mode').value, pref = (document.getElementById('routePref') || {value:'fast'}).value, out = document.getElementById('route');
 if(!NETWORK || !firstByName[from] || !firstByName[to]){ out.textContent = 'Станция не найдена в линиях сети. Выберите название из подсказок.'; return; }
 var states = {}, adj = {}; function addState(s, line){ var k = s.name + '|' + line.id; if(!states[k]){ states[k] = {key: k, name: s.name, lat: s.lat, lon: s.lon, line: line}; adj[k] = []; } return k; }
-NETWORK.lines.forEach(function(line){ if(!allowed(mode, line.type)) return; var prev = null; line.stations.forEach(function(s){ var k = addState(s, line); if(prev){ var a = states[prev], b = states[k], speed = line.type === 'mcd' ? 55 : line.type === 'mcc' ? 45 : 38, w = hav(a, b) / speed * 60 + 0.7; if(w < 1.2) w = 1.2; adj[prev].push({to: k, w: w}); adj[k].push({to: prev, w: w}); } prev = k; }); });
+NETWORK.lines.forEach(function(line){ if(!allowed(mode, line.type)) return; var prev = null; line.stations.forEach(function(s){ var k = addState(s, line); if(prev){ var a = states[prev], b = states[k], speed = line.type === 'mcd' ? 55 : line.type === 'mcc' ? 45 : 38, w = hav(a, b) / speed * 60 + 0.7; if(pref === 'transfers'){ w = w * 0.2; } if(w < 1.2) w = 1.2; adj[prev].push({to: k, w: w}); adj[k].push({to: prev, w: w}); } prev = k; }); });
 var byName = {}; Object.keys(states).forEach(function(k){ if(!byName[states[k].name]) byName[states[k].name] = []; byName[states[k].name].push(k); });
-Object.keys(byName).forEach(function(n){ var arr = byName[n]; for(var i = 0; i < arr.length; i++) for(var j = 0; j < arr.length; j++) if(i !== j && hav(states[arr[i]], states[arr[j]]) <= 1.0) adj[arr[i]].push({to: arr[j], w: 5}); });
+Object.keys(byName).forEach(function(n){ var arr = byName[n]; for(var i = 0; i < arr.length; i++) for(var j = 0; j < arr.length; j++) if(i !== j && hav(states[arr[i]], states[arr[j]]) <= 1.0) adj[arr[i]].push({to: arr[j], w: (pref === 'transfers' ? 30 : 5)}); });
 var dist = {}, prevS = {}, done = {}, starts = byName[from] || [], ends = {};
 (byName[to] || []).forEach(function(k){ ends[k] = 1; }); starts.forEach(function(k){ dist[k] = 0; });
 while(true){ var cur = null, best = Infinity; Object.keys(states).forEach(function(k){ if(!done[k] && dist[k] !== undefined && dist[k] < best){ best = dist[k]; cur = k; } }); if(cur === null) break; done[cur] = 1; if(ends[cur]) break; adj[cur].forEach(function(e){ var nd = dist[cur] + e.w; if(dist[e.to] === undefined || nd < dist[e.to]){ dist[e.to] = nd; prevS[e.to] = cur; } }); }
