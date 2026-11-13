@@ -22,7 +22,7 @@ body.show-metro .label-metro{display:block}
 body.show-mcd .label-mcd{display:block}
 #route{white-space:pre-wrap;background:#171e2b;border:1px solid #232b3a;border-radius:10px;padding:10px;margin-top:8px;font-size:13px;color:#dbe2ee}
 @media(max-width:700px){#app{flex-direction:column}#panel{width:auto;max-height:48%}#map{min-height:52%}}
-</style>
+#tileStatus{position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:1200;background:#7f1d1d;color:#fff;padding:8px 12px;border-radius:10px;font-size:13px;display:none;max-width:92%;text-align:center}</style>
 </head>
 <body>
 <div id='app'>
@@ -49,7 +49,7 @@ body.show-mcd .label-mcd{display:block}
 <button id='addBtn'>Добавить свою проектную станцию, клик по карте</button>
 <button id='undoBtn'>Отменить последнюю свою станцию</button>
 </aside>
-<div id='map'></div>
+<div id='map'></div><div id='tileStatus'></div>
 </div>
 <script src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'></script>
 <script src='https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js'></script>
@@ -58,8 +58,8 @@ body.show-mcd .label-mcd{display:block}
 var map = L.map('map').setView([55.76, 37.62], 9);
 var baseEsri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {maxZoom: 19, maxNativeZoom: 18, updateWhenIdle: false, keepBuffer: 4, attribution: 'Tiles Esri'});
 var baseOsmFr = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {maxZoom: 19, maxNativeZoom: 18, updateWhenIdle: false, keepBuffer: 4, attribution: 'OpenStreetMap contributors, HOT OSM France'});
-var baseDark = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {maxZoom: 19, maxNativeZoom: 18, updateWhenIdle: false, keepBuffer: 4, attribution: 'CARTO'}).addTo(map); var darkErrors = 0; baseDark.on('tileerror', function(){ darkErrors++; if(darkErrors > 12 && map.hasLayer(baseDark)){ map.removeLayer(baseDark); baseOsmFr.addTo(map); } }); var osmErrors = 0; baseOsmFr.on('tileerror', function(){ osmErrors++; if(osmErrors > 12 && map.hasLayer(baseOsmFr)){ map.removeLayer(baseOsmFr); baseEsri.addTo(map); } }); L.control.layers({'Тёмная, CARTO': baseDark, 'Esri Streets, без ключа': baseEsri, 'OSM HOT, запасное зеркало': baseOsmFr}, null, {position: 'topright'}).addTo(map);
-var tileErrors = 0; baseEsri.on('tileerror', function(){ tileErrors++; if(tileErrors > 12 && map.hasLayer(baseEsri)){ map.removeLayer(baseEsri); baseOsmFr.addTo(map); } });
+var baseDark = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {maxZoom: 19, maxNativeZoom: 18, updateWhenIdle: false, keepBuffer: 4, attribution: 'CARTO'}).addTo(map); var tileState = [{layer: baseDark, name: 'CARTO', errors: 0, dead: false}, {layer: baseOsmFr, name: 'OSM HOT', errors: 0, dead: false}, {layer: baseEsri, name: 'Esri', errors: 0, dead: false}]; function showTileStatus(msg){ var el = document.getElementById('tileStatus'); if(el){ el.textContent = msg; el.style.display = msg ? 'block' : 'none'; } } function nextTile(fromIdx){ for(var i = fromIdx + 1; i < tileState.length; i++){ if(!tileState[i].dead){ tileState[i].layer.addTo(map); showTileStatus('Источник карты недоступен, переключено на запасный источник: ' + tileState[i].name); return; } } showTileStatus('Все источники карты временно недоступны. Проверьте интернет: станции, поиск и маршруты продолжают работать.'); } tileState.forEach(function(st, idx){ st.layer.on('tileerror', function(){ if(st.dead) return; st.errors++; if(st.errors > 12){ st.dead = true; if(map.hasLayer(st.layer)){ map.removeLayer(st.layer); nextTile(idx); } } }); st.layer.on('tileload', function(){ st.errors = 0; }); }); L.control.layers({'Тёмная, CARTO': baseDark, 'Esri Streets, без ключа': baseEsri, 'OSM HOT, запасное зеркало': baseOsmFr}, null, {position: 'topright'}).addTo(map);
+
 function co(){ return {maxClusterRadius: function(z){ return z < 11 ? 80 : z < 13 ? 55 : 35; }, disableClusteringAtZoom: 14, spiderfyOnMaxZoom: true, showCoverageOnHover: false}; }
 var gMetro = L.layerGroup(), gMcc = L.layerGroup(), gMcd = L.layerGroup(), gRail = L.markerClusterGroup(co()), gBus = L.markerClusterGroup(co()), gProject = L.layerGroup(), gTransfer = L.layerGroup(), routeLayer = L.layerGroup();
 map.addLayer(gMetro); map.addLayer(gMcc); map.addLayer(gMcd); map.addLayer(gRail); map.addLayer(gBus); map.addLayer(gProject); map.addLayer(gTransfer); map.addLayer(routeLayer);
