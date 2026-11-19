@@ -1,0 +1,6386 @@
+{
+ "stations": [
+  {
+   "id": "st001",
+   "name": "Авиамоторная",
+   "lat": 55.752999,
+   "lon": 37.719706,
+   "lines": [
+    "mcd-D3",
+    "metro-11",
+    "metro-8"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 886.6,
+   "sy": 496.8
+  },
+  {
+   "id": "st002",
+   "name": "Автозаводская",
+   "lat": 55.706828,
+   "lon": 37.660454,
+   "lines": [
+    "metro-14",
+    "metro-2"
+   ],
+   "types": [
+    "mcc",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 809.8,
+   "sy": 577.8
+  },
+  {
+   "id": "st003",
+   "name": "Академическая",
+   "lat": 55.687808,
+   "lon": 37.573515,
+   "lines": [
+    "metro-6"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 697.0,
+   "sy": 611.1
+  },
+  {
+   "id": "st004",
+   "name": "Александровский сад",
+   "lat": 55.752403,
+   "lon": 37.608683,
+   "lines": [
+    "metro-4"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 742.6,
+   "sy": 497.8
+  },
+  {
+   "id": "st005",
+   "name": "Алексеевская",
+   "lat": 55.809089,
+   "lon": 37.639006,
+   "lines": [
+    "metro-6"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 781.9,
+   "sy": 398.4
+  },
+  {
+   "id": "st006",
+   "name": "Алма-Атинская",
+   "lat": 55.632799,
+   "lon": 37.765935,
+   "lines": [
+    "metro-2"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 946.5,
+   "sy": 707.6
+  },
+  {
+   "id": "st007",
+   "name": "Алтуфьево",
+   "lat": 55.897922,
+   "lon": 37.587358,
+   "lines": [
+    "metro-9"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 715.0,
+   "sy": 242.7
+  },
+  {
+   "id": "st008",
+   "name": "Аминьевская",
+   "lat": 55.697595,
+   "lon": 37.467333,
+   "lines": [
+    "mcd-D4",
+    "metro-11"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 559.3,
+   "sy": 593.9
+  },
+  {
+   "id": "st009",
+   "name": "Андроновка",
+   "lat": 55.742902,
+   "lon": 37.736925,
+   "lines": [
+    "mcd-D3",
+    "metro-14"
+   ],
+   "types": [
+    "mcc",
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 908.9,
+   "sy": 514.5
+  },
+  {
+   "id": "st010",
+   "name": "Аникеевка",
+   "lat": 55.832051,
+   "lon": 37.220028,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 238.6,
+   "sy": 358.2
+  },
+  {
+   "id": "st011",
+   "name": "Аннино",
+   "lat": 55.582532,
+   "lon": 37.596531,
+   "lines": [
+    "metro-9"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 726.9,
+   "sy": 795.7
+  },
+  {
+   "id": "st012",
+   "name": "Апрелевка",
+   "lat": 55.550087,
+   "lon": 37.066878,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 40.0,
+   "sy": 852.6
+  },
+  {
+   "id": "st013",
+   "name": "Арбатская",
+   "lat": 55.751974,
+   "lon": 37.603817,
+   "lines": [
+    "metro-3",
+    "metro-4"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 736.3,
+   "sy": 498.6
+  },
+  {
+   "id": "st014",
+   "name": "Аэропорт",
+   "lat": 55.800397,
+   "lon": 37.53315,
+   "lines": [
+    "metro-2"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 644.7,
+   "sy": 413.7
+  },
+  {
+   "id": "st015",
+   "name": "Бабушкинская",
+   "lat": 55.869634,
+   "lon": 37.66411,
+   "lines": [
+    "metro-6"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 814.5,
+   "sy": 292.3
+  },
+  {
+   "id": "st016",
+   "name": "Багратионовская",
+   "lat": 55.743732,
+   "lon": 37.497737,
+   "lines": [
+    "metro-4"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 598.7,
+   "sy": 513.0
+  },
+  {
+   "id": "st017",
+   "name": "Баковка",
+   "lat": 55.68259,
+   "lon": 37.31465,
+   "lines": [
+    "mcd-D1"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 361.3,
+   "sy": 620.3
+  },
+  {
+   "id": "st018",
+   "name": "Балтийская",
+   "lat": 55.825887,
+   "lon": 37.496405,
+   "lines": [
+    "metro-14"
+   ],
+   "types": [
+    "mcc"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 597.0,
+   "sy": 369.0
+  },
+  {
+   "id": "st019",
+   "name": "Баррикадная",
+   "lat": 55.761131,
+   "lon": 37.579309,
+   "lines": [
+    "metro-7"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 704.5,
+   "sy": 482.5
+  },
+  {
+   "id": "st020",
+   "name": "Бауманская",
+   "lat": 55.773039,
+   "lon": 37.680549,
+   "lines": [
+    "metro-3"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 835.8,
+   "sy": 461.7
+  },
+  {
+   "id": "st021",
+   "name": "Беговая",
+   "lat": 55.773716,
+   "lon": 37.546656,
+   "lines": [
+    "mcd-D1",
+    "metro-7"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 662.2,
+   "sy": 460.5
+  },
+  {
+   "id": "st022",
+   "name": "Белокаменная",
+   "lat": 55.830205,
+   "lon": 37.70006,
+   "lines": [
+    "metro-14"
+   ],
+   "types": [
+    "mcc"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 861.1,
+   "sy": 361.4
+  },
+  {
+   "id": "st023",
+   "name": "Беломорская",
+   "lat": 55.864964,
+   "lon": 37.474877,
+   "lines": [
+    "metro-2"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 569.1,
+   "sy": 300.5
+  },
+  {
+   "id": "st024",
+   "name": "Белорусская",
+   "lat": 55.776561,
+   "lon": 37.583698,
+   "lines": [
+    "mcd-D1",
+    "mcd-D4",
+    "metro-2",
+    "metro-5"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 710.2,
+   "sy": 455.5
+  },
+  {
+   "id": "st025",
+   "name": "Беляево",
+   "lat": 55.642777,
+   "lon": 37.52568,
+   "lines": [
+    "metro-6"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 635.0,
+   "sy": 690.1
+  },
+  {
+   "id": "st026",
+   "name": "Бескудниково",
+   "lat": 55.882782,
+   "lon": 37.567776,
+   "lines": [
+    "mcd-D1"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 689.6,
+   "sy": 269.2
+  },
+  {
+   "id": "st027",
+   "name": "Бибирево",
+   "lat": 55.883871,
+   "lon": 37.603554,
+   "lines": [
+    "metro-9"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 736.0,
+   "sy": 267.3
+  },
+  {
+   "id": "st028",
+   "name": "Библиотека имени Ленина",
+   "lat": 55.751232,
+   "lon": 37.610171,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 744.5,
+   "sy": 499.9
+  },
+  {
+   "id": "st029",
+   "name": "Битца",
+   "lat": 55.571283,
+   "lon": 37.611564,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 746.4,
+   "sy": 815.4
+  },
+  {
+   "id": "st030",
+   "name": "Битцевский парк",
+   "lat": 55.600239,
+   "lon": 37.556379,
+   "lines": [
+    "metro-12"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 674.8,
+   "sy": 764.7
+  },
+  {
+   "id": "st031",
+   "name": "Борисово",
+   "lat": 55.633304,
+   "lon": 37.743752,
+   "lines": [
+    "metro-10"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 917.8,
+   "sy": 706.7
+  },
+  {
+   "id": "st032",
+   "name": "Боровицкая",
+   "lat": 55.750972,
+   "lon": 37.607057,
+   "lines": [
+    "metro-9"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 740.5,
+   "sy": 500.4
+  },
+  {
+   "id": "st033",
+   "name": "Боровское шоссе",
+   "lat": 55.647751,
+   "lon": 37.370423,
+   "lines": [
+    "metro-8A"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 433.6,
+   "sy": 681.3
+  },
+  {
+   "id": "st034",
+   "name": "Ботанический сад",
+   "lat": 55.845197,
+   "lon": 37.63896,
+   "lines": [
+    "metro-14",
+    "metro-6"
+   ],
+   "types": [
+    "mcc",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 781.9,
+   "sy": 335.1
+  },
+  {
+   "id": "st035",
+   "name": "Братиславская",
+   "lat": 55.659739,
+   "lon": 37.750669,
+   "lines": [
+    "metro-10"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 926.7,
+   "sy": 660.3
+  },
+  {
+   "id": "st036",
+   "name": "Бульвар Адмирала Ушакова",
+   "lat": 55.545434,
+   "lon": 37.543211,
+   "lines": [
+    "metro-12"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 657.7,
+   "sy": 860.7
+  },
+  {
+   "id": "st037",
+   "name": "Бульвар Дмитрия Донского",
+   "lat": 55.569245,
+   "lon": 37.576869,
+   "lines": [
+    "metro-9"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 701.4,
+   "sy": 819.0
+  },
+  {
+   "id": "st038",
+   "name": "Бульвар Рокоссовского",
+   "lat": 55.815864,
+   "lon": 37.735848,
+   "lines": [
+    "metro-1",
+    "metro-14"
+   ],
+   "types": [
+    "mcc",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 907.5,
+   "sy": 386.6
+  },
+  {
+   "id": "st039",
+   "name": "Бунинская аллея",
+   "lat": 55.538147,
+   "lon": 37.516547,
+   "lines": [
+    "metro-12"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 623.1,
+   "sy": 873.5
+  },
+  {
+   "id": "st040",
+   "name": "Бутово",
+   "lat": 55.541346,
+   "lon": 37.570569,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 693.2,
+   "sy": 867.9
+  },
+  {
+   "id": "st041",
+   "name": "Бутырская",
+   "lat": 55.813373,
+   "lon": 37.602528,
+   "lines": [
+    "metro-10"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 734.6,
+   "sy": 390.9
+  },
+  {
+   "id": "st042",
+   "name": "Быково",
+   "lat": 55.626613,
+   "lon": 38.071255,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1342.5,
+   "sy": 718.4
+  },
+  {
+   "id": "st043",
+   "name": "ВДНХ",
+   "lat": 55.820955,
+   "lon": 37.641201,
+   "lines": [
+    "metro-6"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 784.8,
+   "sy": 377.6
+  },
+  {
+   "id": "st044",
+   "name": "Варшавская",
+   "lat": 55.653334,
+   "lon": 37.619502,
+   "lines": [
+    "metro-11"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 756.6,
+   "sy": 671.6
+  },
+  {
+   "id": "st045",
+   "name": "Верхние Котлы",
+   "lat": 55.690131,
+   "lon": 37.618866,
+   "lines": [
+    "metro-14"
+   ],
+   "types": [
+    "mcc"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 755.8,
+   "sy": 607.0
+  },
+  {
+   "id": "st046",
+   "name": "Верхние Лихоборы",
+   "lat": 55.856113,
+   "lon": 37.561344,
+   "lines": [
+    "metro-10"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 681.2,
+   "sy": 316.0
+  },
+  {
+   "id": "st047",
+   "name": "Вешняки",
+   "lat": 55.722381,
+   "lon": 37.798291,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 988.5,
+   "sy": 550.5
+  },
+  {
+   "id": "st048",
+   "name": "Владыкино",
+   "lat": 55.847254,
+   "lon": 37.591299,
+   "lines": [
+    "metro-14",
+    "metro-9"
+   ],
+   "types": [
+    "mcc",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 720.1,
+   "sy": 331.5
+  },
+  {
+   "id": "st049",
+   "name": "Внуково",
+   "lat": 55.648962,
+   "lon": 37.269527,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 302.8,
+   "sy": 679.2
+  },
+  {
+   "id": "st050",
+   "name": "Водники",
+   "lat": 55.952646,
+   "lon": 37.512382,
+   "lines": [
+    "mcd-D1"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 617.7,
+   "sy": 146.7
+  },
+  {
+   "id": "st051",
+   "name": "Водный стадион",
+   "lat": 55.840059,
+   "lon": 37.486711,
+   "lines": [
+    "metro-2"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 584.4,
+   "sy": 344.1
+  },
+  {
+   "id": "st052",
+   "name": "Войковская",
+   "lat": 55.819052,
+   "lon": 37.498018,
+   "lines": [
+    "metro-2"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 599.1,
+   "sy": 381.0
+  },
+  {
+   "id": "st053",
+   "name": "Волгоградский проспект",
+   "lat": 55.725239,
+   "lon": 37.686891,
+   "lines": [
+    "metro-7"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 844.0,
+   "sy": 545.5
+  },
+  {
+   "id": "st054",
+   "name": "Волжская",
+   "lat": 55.690826,
+   "lon": 37.753101,
+   "lines": [
+    "metro-10"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 929.9,
+   "sy": 605.8
+  },
+  {
+   "id": "st055",
+   "name": "Волоколамская",
+   "lat": 55.835513,
+   "lon": 37.382242,
+   "lines": [
+    "mcd-D2",
+    "metro-3"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 449.0,
+   "sy": 352.1
+  },
+  {
+   "id": "st056",
+   "name": "Воробьёвы горы",
+   "lat": 55.710332,
+   "lon": 37.559289,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 678.6,
+   "sy": 571.6
+  },
+  {
+   "id": "st057",
+   "name": "Воронцовская",
+   "lat": 55.658835,
+   "lon": 37.539479,
+   "lines": [
+    "metro-11"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 652.9,
+   "sy": 661.9
+  },
+  {
+   "id": "st058",
+   "name": "Выхино",
+   "lat": 55.715644,
+   "lon": 37.817923,
+   "lines": [
+    "mcd-D3",
+    "metro-7"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1014.0,
+   "sy": 562.3
+  },
+  {
+   "id": "st059",
+   "name": "Говорово",
+   "lat": 55.659552,
+   "lon": 37.417239,
+   "lines": [
+    "metro-8A"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 494.4,
+   "sy": 660.6
+  },
+  {
+   "id": "st060",
+   "name": "Гражданская",
+   "lat": 55.805554,
+   "lon": 37.553229,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 670.7,
+   "sy": 404.6
+  },
+  {
+   "id": "st061",
+   "name": "Грачёвская",
+   "lat": 55.869799,
+   "lon": 37.509446,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 613.9,
+   "sy": 292.0
+  },
+  {
+   "id": "st062",
+   "name": "Давыдково",
+   "lat": 55.715144,
+   "lon": 37.451743,
+   "lines": [
+    "metro-11"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 539.1,
+   "sy": 563.2
+  },
+  {
+   "id": "st063",
+   "name": "Дегунино",
+   "lat": 55.865919,
+   "lon": 37.573092,
+   "lines": [
+    "mcd-D1"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 696.5,
+   "sy": 298.8
+  },
+  {
+   "id": "st064",
+   "name": "Деловой центр",
+   "lat": 55.750087,
+   "lon": 37.541367,
+   "lines": [
+    "metro-4A"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 655.3,
+   "sy": 501.9
+  },
+  {
+   "id": "st065",
+   "name": "Депо",
+   "lat": 55.674213,
+   "lon": 37.728178,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 897.6,
+   "sy": 634.9
+  },
+  {
+   "id": "st066",
+   "name": "Динамо",
+   "lat": 55.78974,
+   "lon": 37.558208,
+   "lines": [
+    "metro-2"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 677.2,
+   "sy": 432.4
+  },
+  {
+   "id": "st067",
+   "name": "Дмитровская",
+   "lat": 55.806561,
+   "lon": 37.581907,
+   "lines": [
+    "mcd-D2",
+    "metro-9"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 707.9,
+   "sy": 402.9
+  },
+  {
+   "id": "st068",
+   "name": "Добрынинская",
+   "lat": 55.729107,
+   "lon": 37.62442,
+   "lines": [
+    "metro-5"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 763.0,
+   "sy": 538.7
+  },
+  {
+   "id": "st069",
+   "name": "Долгопрудная",
+   "lat": 55.940127,
+   "lon": 37.519987,
+   "lines": [
+    "mcd-D1"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 627.6,
+   "sy": 168.7
+  },
+  {
+   "id": "st070",
+   "name": "Домодедовская",
+   "lat": 55.610855,
+   "lon": 37.718741,
+   "lines": [
+    "metro-2"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 885.3,
+   "sy": 746.0
+  },
+  {
+   "id": "st071",
+   "name": "Достоевская",
+   "lat": 55.781461,
+   "lon": 37.615074,
+   "lines": [
+    "metro-10"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 750.9,
+   "sy": 446.9
+  },
+  {
+   "id": "st072",
+   "name": "Дубровка",
+   "lat": 55.719209,
+   "lon": 37.675541,
+   "lines": [
+    "metro-10"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 829.3,
+   "sy": 556.0
+  },
+  {
+   "id": "st073",
+   "name": "Есенинская",
+   "lat": 55.582358,
+   "lon": 38.183432,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1488.0,
+   "sy": 796.0
+  },
+  {
+   "id": "st074",
+   "name": "Железнодорожная",
+   "lat": 55.752493,
+   "lon": 38.008281,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1260.8,
+   "sy": 497.7
+  },
+  {
+   "id": "st075",
+   "name": "Жулебино",
+   "lat": 55.685438,
+   "lon": 37.856294,
+   "lines": [
+    "metro-7"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1063.7,
+   "sy": 615.3
+  },
+  {
+   "id": "st076",
+   "name": "ЗИЛ",
+   "lat": 55.697877,
+   "lon": 37.647554,
+   "lines": [
+    "metro-14"
+   ],
+   "types": [
+    "mcc"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 793.0,
+   "sy": 593.4
+  },
+  {
+   "id": "st077",
+   "name": "Зорге",
+   "lat": 55.788494,
+   "lon": 37.504362,
+   "lines": [
+    "metro-14"
+   ],
+   "types": [
+    "mcc"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 607.3,
+   "sy": 434.6
+  },
+  {
+   "id": "st078",
+   "name": "Зюзино",
+   "lat": 55.655778,
+   "lon": 37.573552,
+   "lines": [
+    "metro-11"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 697.1,
+   "sy": 667.3
+  },
+  {
+   "id": "st079",
+   "name": "Зябликово",
+   "lat": 55.612235,
+   "lon": 37.745179,
+   "lines": [
+    "metro-10"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 919.6,
+   "sy": 743.6
+  },
+  {
+   "id": "st080",
+   "name": "Измайлово",
+   "lat": 55.789791,
+   "lon": 37.743213,
+   "lines": [
+    "metro-14"
+   ],
+   "types": [
+    "mcc"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 917.1,
+   "sy": 432.3
+  },
+  {
+   "id": "st081",
+   "name": "Измайловская",
+   "lat": 55.787733,
+   "lon": 37.781602,
+   "lines": [
+    "metro-3"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 966.9,
+   "sy": 435.9
+  },
+  {
+   "id": "st082",
+   "name": "Ильинская",
+   "lat": 55.616347,
+   "lon": 38.100266,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1380.1,
+   "sy": 736.4
+  },
+  {
+   "id": "st083",
+   "name": "Ипподром",
+   "lat": 55.560485,
+   "lon": 38.238988,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1560.0,
+   "sy": 834.4
+  },
+  {
+   "id": "st084",
+   "name": "Калитники",
+   "lat": 55.733672,
+   "lon": 37.70266,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 864.5,
+   "sy": 530.7
+  },
+  {
+   "id": "st085",
+   "name": "Калужская",
+   "lat": 55.657091,
+   "lon": 37.540526,
+   "lines": [
+    "metro-6"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 654.2,
+   "sy": 665.0
+  },
+  {
+   "id": "st086",
+   "name": "Кантемировская",
+   "lat": 55.635735,
+   "lon": 37.656541,
+   "lines": [
+    "metro-2"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 804.7,
+   "sy": 702.4
+  },
+  {
+   "id": "st087",
+   "name": "Каховская",
+   "lat": 55.652903,
+   "lon": 37.598429,
+   "lines": [
+    "metro-11"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 729.3,
+   "sy": 672.3
+  },
+  {
+   "id": "st088",
+   "name": "Каширская",
+   "lat": 55.655086,
+   "lon": 37.648583,
+   "lines": [
+    "metro-11",
+    "metro-2"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 794.4,
+   "sy": 668.5
+  },
+  {
+   "id": "st089",
+   "name": "Киевская",
+   "lat": 55.744095,
+   "lon": 37.565465,
+   "lines": [
+    "metro-3",
+    "metro-4",
+    "metro-5"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 686.6,
+   "sy": 512.4
+  },
+  {
+   "id": "st090",
+   "name": "Китай-город",
+   "lat": 55.755586,
+   "lon": 37.633059,
+   "lines": [
+    "metro-6",
+    "metro-7"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 774.2,
+   "sy": 492.3
+  },
+  {
+   "id": "st091",
+   "name": "Кленовый бульвар",
+   "lat": 55.674487,
+   "lon": 37.680734,
+   "lines": [
+    "metro-11"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 836.1,
+   "sy": 634.5
+  },
+  {
+   "id": "st092",
+   "name": "Кожуховская",
+   "lat": 55.707586,
+   "lon": 37.684618,
+   "lines": [
+    "metro-10"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 841.1,
+   "sy": 576.4
+  },
+  {
+   "id": "st093",
+   "name": "Кокошкино",
+   "lat": 55.59973,
+   "lon": 37.171189,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 175.3,
+   "sy": 765.5
+  },
+  {
+   "id": "st094",
+   "name": "Коломенская",
+   "lat": 55.678481,
+   "lon": 37.663925,
+   "lines": [
+    "metro-2"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 814.3,
+   "sy": 627.5
+  },
+  {
+   "id": "st095",
+   "name": "Комсомольская",
+   "lat": 55.774895,
+   "lon": 37.655262,
+   "lines": [
+    "metro-1",
+    "metro-5"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 803.0,
+   "sy": 458.4
+  },
+  {
+   "id": "st096",
+   "name": "Коньково",
+   "lat": 55.633147,
+   "lon": 37.518977,
+   "lines": [
+    "metro-6"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 626.3,
+   "sy": 706.9
+  },
+  {
+   "id": "st097",
+   "name": "Коптево",
+   "lat": 55.839619,
+   "lon": 37.520107,
+   "lines": [
+    "metro-14"
+   ],
+   "types": [
+    "mcc"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 627.8,
+   "sy": 344.9
+  },
+  {
+   "id": "st098",
+   "name": "Косино",
+   "lat": 55.704687,
+   "lon": 37.84925,
+   "lines": [
+    "mcd-D3",
+    "metro-15"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1054.6,
+   "sy": 581.5
+  },
+  {
+   "id": "st099",
+   "name": "Котельники",
+   "lat": 55.674218,
+   "lon": 37.858513,
+   "lines": [
+    "metro-7"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1066.6,
+   "sy": 634.9
+  },
+  {
+   "id": "st100",
+   "name": "Красково",
+   "lat": 55.649872,
+   "lon": 37.982269,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1227.1,
+   "sy": 677.6
+  },
+  {
+   "id": "st101",
+   "name": "Красногвардейская",
+   "lat": 55.613694,
+   "lon": 37.744435,
+   "lines": [
+    "metro-2"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 918.7,
+   "sy": 741.1
+  },
+  {
+   "id": "st102",
+   "name": "Красногорская",
+   "lat": 55.814742,
+   "lon": 37.303194,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 346.5,
+   "sy": 388.5
+  },
+  {
+   "id": "st103",
+   "name": "Краснопресненская",
+   "lat": 55.761185,
+   "lon": 37.577329,
+   "lines": [
+    "metro-5"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 702.0,
+   "sy": 482.4
+  },
+  {
+   "id": "st104",
+   "name": "Красносельская",
+   "lat": 55.780356,
+   "lon": 37.667656,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 819.1,
+   "sy": 448.8
+  },
+  {
+   "id": "st105",
+   "name": "Красные Ворота",
+   "lat": 55.769024,
+   "lon": 37.648987,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 794.9,
+   "sy": 468.7
+  },
+  {
+   "id": "st106",
+   "name": "Красный Балтиец",
+   "lat": 55.815455,
+   "lon": 37.524879,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 633.9,
+   "sy": 387.3
+  },
+  {
+   "id": "st107",
+   "name": "Красный Строитель",
+   "lat": 55.590378,
+   "lon": 37.615322,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 751.2,
+   "sy": 781.9
+  },
+  {
+   "id": "st108",
+   "name": "Кратово",
+   "lat": 55.591826,
+   "lon": 38.160206,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1457.8,
+   "sy": 779.4
+  },
+  {
+   "id": "st109",
+   "name": "Крестьянская Застава",
+   "lat": 55.73317,
+   "lon": 37.667478,
+   "lines": [
+    "metro-10"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 818.9,
+   "sy": 531.6
+  },
+  {
+   "id": "st110",
+   "name": "Кропоткинская",
+   "lat": 55.74543,
+   "lon": 37.603807,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 736.3,
+   "sy": 510.1
+  },
+  {
+   "id": "st111",
+   "name": "Крылатское",
+   "lat": 55.756595,
+   "lon": 37.408139,
+   "lines": [
+    "metro-3"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 482.5,
+   "sy": 490.5
+  },
+  {
+   "id": "st112",
+   "name": "Крымская",
+   "lat": 55.689839,
+   "lon": 37.605761,
+   "lines": [
+    "metro-14"
+   ],
+   "types": [
+    "mcc"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 738.8,
+   "sy": 607.5
+  },
+  {
+   "id": "st113",
+   "name": "Крюково",
+   "lat": 55.980221,
+   "lon": 37.173964,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 178.9,
+   "sy": 98.4
+  },
+  {
+   "id": "st114",
+   "name": "Крёкшино",
+   "lat": 55.577811,
+   "lon": 37.109736,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 95.6,
+   "sy": 804.0
+  },
+  {
+   "id": "st115",
+   "name": "Кузнецкий Мост",
+   "lat": 55.760751,
+   "lon": 37.626143,
+   "lines": [
+    "metro-7"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 765.3,
+   "sy": 483.2
+  },
+  {
+   "id": "st116",
+   "name": "Кузьминки",
+   "lat": 55.705602,
+   "lon": 37.765784,
+   "lines": [
+    "metro-7"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 946.3,
+   "sy": 579.9
+  },
+  {
+   "id": "st117",
+   "name": "Кунцевская",
+   "lat": 55.729734,
+   "lon": 37.446913,
+   "lines": [
+    "mcd-D1",
+    "metro-11",
+    "metro-3",
+    "metro-4"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 532.8,
+   "sy": 537.6
+  },
+  {
+   "id": "st118",
+   "name": "Курская",
+   "lat": 55.757403,
+   "lon": 37.659104,
+   "lines": [
+    "mcd-D2",
+    "mcd-D4",
+    "metro-3",
+    "metro-5"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 808.0,
+   "sy": 489.1
+  },
+  {
+   "id": "st119",
+   "name": "Курьяново",
+   "lat": 55.649835,
+   "lon": 37.70139,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 862.8,
+   "sy": 677.7
+  },
+  {
+   "id": "st120",
+   "name": "Кусково",
+   "lat": 55.739734,
+   "lon": 37.795383,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 984.7,
+   "sy": 520.1
+  },
+  {
+   "id": "st121",
+   "name": "Кутузовская",
+   "lat": 55.74055,
+   "lon": 37.533963,
+   "lines": [
+    "mcd-D4",
+    "metro-14",
+    "metro-4"
+   ],
+   "types": [
+    "mcc",
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 645.7,
+   "sy": 518.6
+  },
+  {
+   "id": "st122",
+   "name": "Кучино",
+   "lat": 55.752115,
+   "lon": 37.95475,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1191.4,
+   "sy": 498.3
+  },
+  {
+   "id": "st123",
+   "name": "Левобережная",
+   "lat": 55.887022,
+   "lon": 37.46888,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 561.3,
+   "sy": 261.8
+  },
+  {
+   "id": "st124",
+   "name": "Ленинский проспект",
+   "lat": 55.707617,
+   "lon": 37.586212,
+   "lines": [
+    "metro-6"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 713.5,
+   "sy": 576.4
+  },
+  {
+   "id": "st125",
+   "name": "Лермонтовский проспект",
+   "lat": 55.701625,
+   "lon": 37.851973,
+   "lines": [
+    "metro-7"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1058.1,
+   "sy": 586.9
+  },
+  {
+   "id": "st126",
+   "name": "Лесной Городок",
+   "lat": 55.632254,
+   "lon": 37.218408,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 236.5,
+   "sy": 708.5
+  },
+  {
+   "id": "st127",
+   "name": "Лесопарковая",
+   "lat": 55.582098,
+   "lon": 37.576892,
+   "lines": [
+    "metro-12"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 701.4,
+   "sy": 796.5
+  },
+  {
+   "id": "st128",
+   "name": "Лефортово",
+   "lat": 55.764734,
+   "lon": 37.706738,
+   "lines": [
+    "metro-11"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 869.8,
+   "sy": 476.2
+  },
+  {
+   "id": "st129",
+   "name": "Лианозово",
+   "lat": 55.898839,
+   "lon": 37.549106,
+   "lines": [
+    "mcd-D1"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 665.4,
+   "sy": 241.1
+  },
+  {
+   "id": "st130",
+   "name": "Лихоборы",
+   "lat": 55.847156,
+   "lon": 37.551464,
+   "lines": [
+    "metro-14"
+   ],
+   "types": [
+    "mcc"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 668.4,
+   "sy": 331.7
+  },
+  {
+   "id": "st131",
+   "name": "Лихоборы",
+   "lat": 55.842712,
+   "lon": 37.530476,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 641.2,
+   "sy": 339.5
+  },
+  {
+   "id": "st132",
+   "name": "Лобня",
+   "lat": 56.013514,
+   "lon": 37.484876,
+   "lines": [
+    "mcd-D1"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 582.1,
+   "sy": 40.0
+  },
+  {
+   "id": "st133",
+   "name": "Локомотив",
+   "lat": 55.804133,
+   "lon": 37.746007,
+   "lines": [
+    "metro-14"
+   ],
+   "types": [
+    "mcc"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 920.7,
+   "sy": 407.1
+  },
+  {
+   "id": "st134",
+   "name": "Ломоносовский проспект",
+   "lat": 55.707142,
+   "lon": 37.516236,
+   "lines": [
+    "metro-8A"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 622.7,
+   "sy": 577.2
+  },
+  {
+   "id": "st135",
+   "name": "Лубянка",
+   "lat": 55.759873,
+   "lon": 37.627855,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 767.5,
+   "sy": 484.7
+  },
+  {
+   "id": "st136",
+   "name": "Лужники",
+   "lat": 55.720617,
+   "lon": 37.561311,
+   "lines": [
+    "metro-14"
+   ],
+   "types": [
+    "mcc"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 681.2,
+   "sy": 553.6
+  },
+  {
+   "id": "st137",
+   "name": "Лухмановская",
+   "lat": 55.70851,
+   "lon": 37.901016,
+   "lines": [
+    "metro-15"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1121.7,
+   "sy": 574.8
+  },
+  {
+   "id": "st138",
+   "name": "Люберцы I",
+   "lat": 55.68249,
+   "lon": 37.896703,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1116.1,
+   "sy": 620.4
+  },
+  {
+   "id": "st139",
+   "name": "Люблино",
+   "lat": 55.675721,
+   "lon": 37.761958,
+   "lines": [
+    "mcd-D2",
+    "metro-10"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 941.4,
+   "sy": 632.3
+  },
+  {
+   "id": "st140",
+   "name": "Малаховка",
+   "lat": 55.645406,
+   "lon": 38.007434,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1259.7,
+   "sy": 685.5
+  },
+  {
+   "id": "st141",
+   "name": "Марк",
+   "lat": 55.904502,
+   "lon": 37.538253,
+   "lines": [
+    "mcd-D1"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 651.3,
+   "sy": 231.1
+  },
+  {
+   "id": "st142",
+   "name": "Марксистская",
+   "lat": 55.741316,
+   "lon": 37.653534,
+   "lines": [
+    "metro-8"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 800.8,
+   "sy": 517.3
+  },
+  {
+   "id": "st143",
+   "name": "Марьина Роща",
+   "lat": 55.795524,
+   "lon": 37.616306,
+   "lines": [
+    "mcd-D2",
+    "mcd-D4",
+    "metro-10"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 752.5,
+   "sy": 422.2
+  },
+  {
+   "id": "st144",
+   "name": "Марьино",
+   "lat": 55.650016,
+   "lon": 37.743147,
+   "lines": [
+    "metro-10"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 917.0,
+   "sy": 677.4
+  },
+  {
+   "id": "st145",
+   "name": "Матвеевская",
+   "lat": 55.704558,
+   "lon": 37.481528,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 577.7,
+   "sy": 581.7
+  },
+  {
+   "id": "st146",
+   "name": "Маяковская",
+   "lat": 55.770171,
+   "lon": 37.595087,
+   "lines": [
+    "metro-2"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 725.0,
+   "sy": 466.7
+  },
+  {
+   "id": "st147",
+   "name": "Медведково",
+   "lat": 55.887177,
+   "lon": 37.66155,
+   "lines": [
+    "metro-6"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 811.2,
+   "sy": 261.5
+  },
+  {
+   "id": "st148",
+   "name": "Менделеевская",
+   "lat": 55.780961,
+   "lon": 37.601981,
+   "lines": [
+    "metro-9"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 733.9,
+   "sy": 447.8
+  },
+  {
+   "id": "st149",
+   "name": "Мещерская",
+   "lat": 55.666803,
+   "lon": 37.42461,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 503.9,
+   "sy": 647.9
+  },
+  {
+   "id": "st150",
+   "name": "Минская",
+   "lat": 55.724788,
+   "lon": 37.496844,
+   "lines": [
+    "mcd-D4",
+    "metro-8A"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 597.6,
+   "sy": 546.3
+  },
+  {
+   "id": "st151",
+   "name": "Митино",
+   "lat": 55.845754,
+   "lon": 37.362226,
+   "lines": [
+    "metro-3"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 423.0,
+   "sy": 334.2
+  },
+  {
+   "id": "st152",
+   "name": "Митьково",
+   "lat": 55.785603,
+   "lon": 37.671437,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 824.0,
+   "sy": 439.6
+  },
+  {
+   "id": "st153",
+   "name": "Мичуринец",
+   "lat": 55.646189,
+   "lon": 37.315547,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 362.5,
+   "sy": 684.1
+  },
+  {
+   "id": "st154",
+   "name": "Мичуринский проспект",
+   "lat": 55.688815,
+   "lon": 37.484018,
+   "lines": [
+    "metro-11",
+    "metro-8A"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 580.9,
+   "sy": 609.3
+  },
+  {
+   "id": "st155",
+   "name": "Мнёвники",
+   "lat": 55.761184,
+   "lon": 37.471405,
+   "lines": [
+    "metro-11"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 564.6,
+   "sy": 482.4
+  },
+  {
+   "id": "st156",
+   "name": "Молжаниново",
+   "lat": 55.924208,
+   "lon": 37.381324,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 447.8,
+   "sy": 196.6
+  },
+  {
+   "id": "st157",
+   "name": "Молодёжная",
+   "lat": 55.740757,
+   "lon": 37.416939,
+   "lines": [
+    "metro-3"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 494.0,
+   "sy": 518.3
+  },
+  {
+   "id": "st158",
+   "name": "Москва-Сити",
+   "lat": 55.750263,
+   "lon": 37.532196,
+   "lines": [
+    "mcd-D1",
+    "mcd-D4",
+    "metro-14",
+    "metro-4A",
+    "metro-8A"
+   ],
+   "types": [
+    "mcc",
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 643.4,
+   "sy": 501.6
+  },
+  {
+   "id": "st159",
+   "name": "Москва-Товарная",
+   "lat": 55.745199,
+   "lon": 37.689308,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 847.2,
+   "sy": 510.5
+  },
+  {
+   "id": "st160",
+   "name": "Москворечье",
+   "lat": 55.641278,
+   "lon": 37.690067,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 848.2,
+   "sy": 692.7
+  },
+  {
+   "id": "st161",
+   "name": "Моссельмаш",
+   "lat": 55.86173,
+   "lon": 37.528356,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 638.4,
+   "sy": 306.1
+  },
+  {
+   "id": "st162",
+   "name": "Мякинино",
+   "lat": 55.825203,
+   "lon": 37.385295,
+   "lines": [
+    "metro-3"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 452.9,
+   "sy": 370.2
+  },
+  {
+   "id": "st163",
+   "name": "Нагатинская",
+   "lat": 55.682973,
+   "lon": 37.622414,
+   "lines": [
+    "metro-9"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 760.4,
+   "sy": 619.6
+  },
+  {
+   "id": "st164",
+   "name": "Нагатинский Затон",
+   "lat": 55.684331,
+   "lon": 37.704303,
+   "lines": [
+    "metro-11"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 866.6,
+   "sy": 617.2
+  },
+  {
+   "id": "st165",
+   "name": "Нагорная",
+   "lat": 55.671943,
+   "lon": 37.610274,
+   "lines": [
+    "metro-9"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 744.7,
+   "sy": 638.9
+  },
+  {
+   "id": "st166",
+   "name": "Народное Ополчение",
+   "lat": 55.775735,
+   "lon": 37.485731,
+   "lines": [
+    "metro-11"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 583.2,
+   "sy": 456.9
+  },
+  {
+   "id": "st167",
+   "name": "Нахабино",
+   "lat": 55.841588,
+   "lon": 37.184911,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 193.1,
+   "sy": 341.5
+  },
+  {
+   "id": "st168",
+   "name": "Нахимовский проспект",
+   "lat": 55.662651,
+   "lon": 37.605622,
+   "lines": [
+    "metro-9"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 738.6,
+   "sy": 655.2
+  },
+  {
+   "id": "st169",
+   "name": "Некрасовка",
+   "lat": 55.702891,
+   "lon": 37.928178,
+   "lines": [
+    "metro-15"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1156.9,
+   "sy": 584.7
+  },
+  {
+   "id": "st170",
+   "name": "Немчиновка",
+   "lat": 55.715937,
+   "lon": 37.37526,
+   "lines": [
+    "mcd-D1"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 439.9,
+   "sy": 561.8
+  },
+  {
+   "id": "st171",
+   "name": "Нижегородская",
+   "lat": 55.731955,
+   "lon": 37.72897,
+   "lines": [
+    "mcd-D4",
+    "metro-11",
+    "metro-14",
+    "metro-15"
+   ],
+   "types": [
+    "mcc",
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 898.6,
+   "sy": 533.7
+  },
+  {
+   "id": "st172",
+   "name": "Никольское",
+   "lat": 55.759555,
+   "lon": 37.897152,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1116.7,
+   "sy": 485.3
+  },
+  {
+   "id": "st173",
+   "name": "Новаторская",
+   "lat": 55.670067,
+   "lon": 37.521775,
+   "lines": [
+    "metro-11"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 629.9,
+   "sy": 642.2
+  },
+  {
+   "id": "st174",
+   "name": "Новогиреево",
+   "lat": 55.751769,
+   "lon": 37.816745,
+   "lines": [
+    "mcd-D4",
+    "metro-8"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1012.4,
+   "sy": 499.0
+  },
+  {
+   "id": "st175",
+   "name": "Новодачная",
+   "lat": 55.924303,
+   "lon": 37.527997,
+   "lines": [
+    "mcd-D1"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 638.0,
+   "sy": 196.4
+  },
+  {
+   "id": "st176",
+   "name": "Новокосино",
+   "lat": 55.745087,
+   "lon": 37.863773,
+   "lines": [
+    "metro-8"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1073.4,
+   "sy": 510.7
+  },
+  {
+   "id": "st177",
+   "name": "Новокузнецкая",
+   "lat": 55.741434,
+   "lon": 37.629202,
+   "lines": [
+    "metro-2"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 769.2,
+   "sy": 517.1
+  },
+  {
+   "id": "st178",
+   "name": "Новомосковская",
+   "lat": 55.560567,
+   "lon": 37.468006,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 560.2,
+   "sy": 834.2
+  },
+  {
+   "id": "st179",
+   "name": "Новопеределкино",
+   "lat": 55.639625,
+   "lon": 37.355104,
+   "lines": [
+    "metro-8A"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 413.8,
+   "sy": 695.6
+  },
+  {
+   "id": "st180",
+   "name": "Новопеределкино",
+   "lat": 55.638276,
+   "lon": 37.382842,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 449.7,
+   "sy": 698.0
+  },
+  {
+   "id": "st181",
+   "name": "Новоподрезково",
+   "lat": 55.937011,
+   "lon": 37.351076,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 408.5,
+   "sy": 174.1
+  },
+  {
+   "id": "st182",
+   "name": "Новослободская",
+   "lat": 55.779852,
+   "lon": 37.603475,
+   "lines": [
+    "metro-5"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 735.9,
+   "sy": 449.7
+  },
+  {
+   "id": "st183",
+   "name": "Новохохловская",
+   "lat": 55.724146,
+   "lon": 37.716887,
+   "lines": [
+    "mcd-D2",
+    "metro-14"
+   ],
+   "types": [
+    "mcc",
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 882.9,
+   "sy": 547.4
+  },
+  {
+   "id": "st184",
+   "name": "Новоясеневская",
+   "lat": 55.600994,
+   "lon": 37.554139,
+   "lines": [
+    "metro-6"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 671.9,
+   "sy": 763.3
+  },
+  {
+   "id": "st185",
+   "name": "Новые Черёмушки",
+   "lat": 55.670279,
+   "lon": 37.554698,
+   "lines": [
+    "metro-6"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 672.6,
+   "sy": 641.8
+  },
+  {
+   "id": "st186",
+   "name": "Одинцово",
+   "lat": 55.671989,
+   "lon": 37.281816,
+   "lines": [
+    "mcd-D1"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 318.7,
+   "sy": 638.8
+  },
+  {
+   "id": "st187",
+   "name": "Озёрная",
+   "lat": 55.670505,
+   "lon": 37.44873,
+   "lines": [
+    "metro-8A"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 535.2,
+   "sy": 641.4
+  },
+  {
+   "id": "st188",
+   "name": "Окружная",
+   "lat": 55.847514,
+   "lon": 37.573075,
+   "lines": [
+    "mcd-D1",
+    "metro-10",
+    "metro-14"
+   ],
+   "types": [
+    "mcc",
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 696.4,
+   "sy": 331.1
+  },
+  {
+   "id": "st189",
+   "name": "Окская",
+   "lat": 55.718342,
+   "lon": 37.781763,
+   "lines": [
+    "metro-15"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 967.1,
+   "sy": 557.6
+  },
+  {
+   "id": "st190",
+   "name": "Октябрьская",
+   "lat": 55.730137,
+   "lon": 37.610154,
+   "lines": [
+    "metro-5",
+    "metro-6"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 744.5,
+   "sy": 536.9
+  },
+  {
+   "id": "st191",
+   "name": "Ольгино",
+   "lat": 55.751738,
+   "lon": 37.978747,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1222.5,
+   "sy": 499.0
+  },
+  {
+   "id": "st192",
+   "name": "Ольховая",
+   "lat": 55.568621,
+   "lon": 37.459359,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 549.0,
+   "sy": 820.1
+  },
+  {
+   "id": "st193",
+   "name": "Опалиха",
+   "lat": 55.822766,
+   "lon": 37.248536,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 275.6,
+   "sy": 374.5
+  },
+  {
+   "id": "st194",
+   "name": "Орехово",
+   "lat": 55.613143,
+   "lon": 37.694972,
+   "lines": [
+    "metro-2"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 854.5,
+   "sy": 742.0
+  },
+  {
+   "id": "st195",
+   "name": "Останкино",
+   "lat": 55.817502,
+   "lon": 37.603217,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 735.5,
+   "sy": 383.7
+  },
+  {
+   "id": "st196",
+   "name": "Остафьево",
+   "lat": 55.485589,
+   "lon": 37.554925,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 672.9,
+   "sy": 965.7
+  },
+  {
+   "id": "st197",
+   "name": "Отдых",
+   "lat": 55.601375,
+   "lon": 38.136993,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1427.7,
+   "sy": 762.7
+  },
+  {
+   "id": "st198",
+   "name": "Отрадное",
+   "lat": 55.863177,
+   "lon": 37.604651,
+   "lines": [
+    "metro-9"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 737.4,
+   "sy": 303.6
+  },
+  {
+   "id": "st199",
+   "name": "Охотный ряд",
+   "lat": 55.757772,
+   "lon": 37.61651,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 752.8,
+   "sy": 488.4
+  },
+  {
+   "id": "st200",
+   "name": "Очаково I",
+   "lat": 55.683635,
+   "lon": 37.451495,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 538.8,
+   "sy": 618.4
+  },
+  {
+   "id": "st201",
+   "name": "Павелецкая",
+   "lat": 55.731408,
+   "lon": 37.637994,
+   "lines": [
+    "metro-2",
+    "metro-5"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 780.6,
+   "sy": 534.7
+  },
+  {
+   "id": "st202",
+   "name": "Павшино",
+   "lat": 55.814898,
+   "lon": 37.339515,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 393.6,
+   "sy": 388.3
+  },
+  {
+   "id": "st203",
+   "name": "Панки",
+   "lat": 55.668701,
+   "lon": 37.923115,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1150.4,
+   "sy": 644.6
+  },
+  {
+   "id": "st204",
+   "name": "Панфиловская",
+   "lat": 55.79901,
+   "lon": 37.499027,
+   "lines": [
+    "metro-14"
+   ],
+   "types": [
+    "mcc"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 600.4,
+   "sy": 416.1
+  },
+  {
+   "id": "st205",
+   "name": "Парк Культуры",
+   "lat": 55.735651,
+   "lon": 37.592787,
+   "lines": [
+    "metro-1",
+    "metro-5"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 722.0,
+   "sy": 527.2
+  },
+  {
+   "id": "st206",
+   "name": "Парк Победы",
+   "lat": 55.736169,
+   "lon": 37.517967,
+   "lines": [
+    "metro-8A"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 625.0,
+   "sy": 526.3
+  },
+  {
+   "id": "st207",
+   "name": "Партизанская",
+   "lat": 55.788503,
+   "lon": 37.750993,
+   "lines": [
+    "metro-3"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 927.2,
+   "sy": 434.5
+  },
+  {
+   "id": "st208",
+   "name": "Пенягино",
+   "lat": 55.823386,
+   "lon": 37.361394,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 421.9,
+   "sy": 373.4
+  },
+  {
+   "id": "st209",
+   "name": "Первомайская",
+   "lat": 55.794727,
+   "lon": 37.799396,
+   "lines": [
+    "metro-3"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 989.9,
+   "sy": 423.6
+  },
+  {
+   "id": "st210",
+   "name": "Переделкино",
+   "lat": 55.656288,
+   "lon": 37.355635,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 414.5,
+   "sy": 666.4
+  },
+  {
+   "id": "st211",
+   "name": "Перерва",
+   "lat": 55.660845,
+   "lon": 37.716261,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 882.1,
+   "sy": 658.4
+  },
+  {
+   "id": "st212",
+   "name": "Перово",
+   "lat": 55.751197,
+   "lon": 37.786482,
+   "lines": [
+    "mcd-D3",
+    "metro-8"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 973.2,
+   "sy": 500.0
+  },
+  {
+   "id": "st213",
+   "name": "Петровский парк",
+   "lat": 55.791922,
+   "lon": 37.557093,
+   "lines": [
+    "metro-11"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 675.7,
+   "sy": 428.5
+  },
+  {
+   "id": "st214",
+   "name": "Петровско-Разумовская",
+   "lat": 55.837305,
+   "lon": 37.571569,
+   "lines": [
+    "mcd-D1",
+    "mcd-D3",
+    "metro-10",
+    "metro-9"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 694.5,
+   "sy": 349.0
+  },
+  {
+   "id": "st215",
+   "name": "Печатники",
+   "lat": 55.693491,
+   "lon": 37.726952,
+   "lines": [
+    "mcd-D2",
+    "metro-10",
+    "metro-11"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 896.0,
+   "sy": 601.1
+  },
+  {
+   "id": "st216",
+   "name": "Пионерская",
+   "lat": 55.735988,
+   "lon": 37.467136,
+   "lines": [
+    "metro-4"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 559.1,
+   "sy": 526.6
+  },
+  {
+   "id": "st217",
+   "name": "Планерная",
+   "lat": 55.860654,
+   "lon": 37.436526,
+   "lines": [
+    "metro-7"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 519.4,
+   "sy": 308.0
+  },
+  {
+   "id": "st218",
+   "name": "Площадь Ильича",
+   "lat": 55.747196,
+   "lon": 37.683197,
+   "lines": [
+    "metro-8"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 839.2,
+   "sy": 507.0
+  },
+  {
+   "id": "st219",
+   "name": "Площадь Революции",
+   "lat": 55.756651,
+   "lon": 37.621784,
+   "lines": [
+    "metro-3"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 759.6,
+   "sy": 490.4
+  },
+  {
+   "id": "st220",
+   "name": "Площадь трёх вокзалов",
+   "lat": 55.776222,
+   "lon": 37.651616,
+   "lines": [
+    "mcd-D2",
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 798.3,
+   "sy": 456.1
+  },
+  {
+   "id": "st221",
+   "name": "Плющево",
+   "lat": 55.730852,
+   "lon": 37.774161,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 957.2,
+   "sy": 535.6
+  },
+  {
+   "id": "st222",
+   "name": "Победа",
+   "lat": 55.566069,
+   "lon": 37.092746,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 73.5,
+   "sy": 824.6
+  },
+  {
+   "id": "st223",
+   "name": "Подольск",
+   "lat": 55.431799,
+   "lon": 37.565417,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 686.5,
+   "sy": 1060.0
+  },
+  {
+   "id": "st224",
+   "name": "Подрезково",
+   "lat": 55.942682,
+   "lon": 37.330249,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 381.5,
+   "sy": 164.2
+  },
+  {
+   "id": "st225",
+   "name": "Поклонная",
+   "lat": 55.73212,
+   "lon": 37.520771,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 628.6,
+   "sy": 533.4
+  },
+  {
+   "id": "st226",
+   "name": "Покровское",
+   "lat": 55.602761,
+   "lon": 37.631924,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 772.8,
+   "sy": 760.2
+  },
+  {
+   "id": "st227",
+   "name": "Полежаевская",
+   "lat": 55.777509,
+   "lon": 37.51929,
+   "lines": [
+    "metro-7"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 626.7,
+   "sy": 453.8
+  },
+  {
+   "id": "st228",
+   "name": "Полянка",
+   "lat": 55.738168,
+   "lon": 37.6172,
+   "lines": [
+    "metro-9"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 753.7,
+   "sy": 522.8
+  },
+  {
+   "id": "st229",
+   "name": "Потапово",
+   "lat": 55.55264,
+   "lon": 37.492621,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 592.1,
+   "sy": 848.1
+  },
+  {
+   "id": "st230",
+   "name": "Пражская",
+   "lat": 55.612374,
+   "lon": 37.604524,
+   "lines": [
+    "metro-9"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 737.2,
+   "sy": 743.4
+  },
+  {
+   "id": "st231",
+   "name": "Преображенская площадь",
+   "lat": 55.79637,
+   "lon": 37.715347,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 880.9,
+   "sy": 420.7
+  },
+  {
+   "id": "st232",
+   "name": "Прокшино",
+   "lat": 55.586218,
+   "lon": 37.433859,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 515.9,
+   "sy": 789.2
+  },
+  {
+   "id": "st233",
+   "name": "Пролетарская",
+   "lat": 55.731857,
+   "lon": 37.665879,
+   "lines": [
+    "metro-7"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 816.8,
+   "sy": 533.9
+  },
+  {
+   "id": "st234",
+   "name": "Проспект Вернадского",
+   "lat": 55.677226,
+   "lon": 37.506064,
+   "lines": [
+    "metro-1",
+    "metro-11"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 609.5,
+   "sy": 629.7
+  },
+  {
+   "id": "st235",
+   "name": "Проспект Мира",
+   "lat": 55.780242,
+   "lon": 37.631867,
+   "lines": [
+    "metro-5",
+    "metro-6"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 772.7,
+   "sy": 449.0
+  },
+  {
+   "id": "st236",
+   "name": "Профсоюзная",
+   "lat": 55.67793,
+   "lon": 37.562904,
+   "lines": [
+    "metro-6"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 683.2,
+   "sy": 628.4
+  },
+  {
+   "id": "st237",
+   "name": "Пушкинская",
+   "lat": 55.765428,
+   "lon": 37.607416,
+   "lines": [
+    "metro-7"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 741.0,
+   "sy": 475.0
+  },
+  {
+   "id": "st238",
+   "name": "Пятницкое шоссе",
+   "lat": 55.856143,
+   "lon": 37.354202,
+   "lines": [
+    "metro-3"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 412.6,
+   "sy": 315.9
+  },
+  {
+   "id": "st239",
+   "name": "Рабочий Посёлок",
+   "lat": 55.726968,
+   "lon": 37.418512,
+   "lines": [
+    "mcd-D1"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 496.0,
+   "sy": 542.4
+  },
+  {
+   "id": "st240",
+   "name": "Раменки",
+   "lat": 55.697561,
+   "lon": 37.498542,
+   "lines": [
+    "metro-8A"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 599.8,
+   "sy": 594.0
+  },
+  {
+   "id": "st241",
+   "name": "Раменское",
+   "lat": 55.565154,
+   "lon": 38.226217,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1543.4,
+   "sy": 826.2
+  },
+  {
+   "id": "st242",
+   "name": "Рассказовка",
+   "lat": 55.634029,
+   "lon": 37.335086,
+   "lines": [
+    "metro-8A"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 387.8,
+   "sy": 705.4
+  },
+  {
+   "id": "st243",
+   "name": "Реутов",
+   "lat": 55.751563,
+   "lon": 37.855631,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1062.9,
+   "sy": 499.3
+  },
+  {
+   "id": "st244",
+   "name": "Речной вокзал",
+   "lat": 55.855013,
+   "lon": 37.476213,
+   "lines": [
+    "metro-2"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 570.8,
+   "sy": 317.9
+  },
+  {
+   "id": "st245",
+   "name": "Рижская",
+   "lat": 55.793701,
+   "lon": 37.636498,
+   "lines": [
+    "mcd-D2",
+    "metro-6"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 778.7,
+   "sy": 425.4
+  },
+  {
+   "id": "st246",
+   "name": "Римская",
+   "lat": 55.746342,
+   "lon": 37.683251,
+   "lines": [
+    "metro-10"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 839.3,
+   "sy": 508.5
+  },
+  {
+   "id": "st247",
+   "name": "Ростокино",
+   "lat": 55.839644,
+   "lon": 37.666844,
+   "lines": [
+    "metro-14"
+   ],
+   "types": [
+    "mcc"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 818.0,
+   "sy": 344.9
+  },
+  {
+   "id": "st248",
+   "name": "Румянцево",
+   "lat": 55.632954,
+   "lon": 37.441585,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 525.9,
+   "sy": 707.3
+  },
+  {
+   "id": "st249",
+   "name": "Рязанский проспект",
+   "lat": 55.716947,
+   "lon": 37.793315,
+   "lines": [
+    "metro-7"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 982.0,
+   "sy": 560.0
+  },
+  {
+   "id": "st250",
+   "name": "Савёловская",
+   "lat": 55.792488,
+   "lon": 37.588816,
+   "lines": [
+    "mcd-D1",
+    "mcd-D4",
+    "metro-11",
+    "metro-9"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 716.9,
+   "sy": 427.6
+  },
+  {
+   "id": "st251",
+   "name": "Саларьево",
+   "lat": 55.621922,
+   "lon": 37.424187,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 503.4,
+   "sy": 726.6
+  },
+  {
+   "id": "st252",
+   "name": "Салтыковская",
+   "lat": 55.757589,
+   "lon": 37.923137,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1150.4,
+   "sy": 488.7
+  },
+  {
+   "id": "st253",
+   "name": "Санино",
+   "lat": 55.583979,
+   "lon": 37.138167,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 132.4,
+   "sy": 793.2
+  },
+  {
+   "id": "st254",
+   "name": "Свиблово",
+   "lat": 55.855213,
+   "lon": 37.652706,
+   "lines": [
+    "metro-6"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 799.7,
+   "sy": 317.6
+  },
+  {
+   "id": "st255",
+   "name": "Севастопольская",
+   "lat": 55.652674,
+   "lon": 37.598434,
+   "lines": [
+    "metro-9"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 729.3,
+   "sy": 672.7
+  },
+  {
+   "id": "st256",
+   "name": "Селигерская",
+   "lat": 55.866612,
+   "lon": 37.54718,
+   "lines": [
+    "metro-10"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 662.9,
+   "sy": 297.6
+  },
+  {
+   "id": "st257",
+   "name": "Семёновская",
+   "lat": 55.783307,
+   "lon": 37.721282,
+   "lines": [
+    "metro-3"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 888.6,
+   "sy": 443.7
+  },
+  {
+   "id": "st258",
+   "name": "Серп и молот",
+   "lat": 55.748235,
+   "lon": 37.682173,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 837.9,
+   "sy": 505.1
+  },
+  {
+   "id": "st259",
+   "name": "Серпуховская",
+   "lat": 55.727953,
+   "lon": 37.624829,
+   "lines": [
+    "metro-9"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 763.6,
+   "sy": 540.7
+  },
+  {
+   "id": "st260",
+   "name": "Сетунь",
+   "lat": 55.72356,
+   "lon": 37.396826,
+   "lines": [
+    "mcd-D1"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 467.9,
+   "sy": 548.4
+  },
+  {
+   "id": "st261",
+   "name": "Силикатная",
+   "lat": 55.470436,
+   "lon": 37.555448,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 673.6,
+   "sy": 992.3
+  },
+  {
+   "id": "st262",
+   "name": "Сколково",
+   "lat": 55.70012,
+   "lon": 37.342539,
+   "lines": [
+    "mcd-D1"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 397.5,
+   "sy": 589.5
+  },
+  {
+   "id": "st263",
+   "name": "Славянский бульвар",
+   "lat": 55.729596,
+   "lon": 37.470788,
+   "lines": [
+    "mcd-D1",
+    "metro-3"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 563.8,
+   "sy": 537.8
+  },
+  {
+   "id": "st264",
+   "name": "Смоленская",
+   "lat": 55.748101,
+   "lon": 37.582273,
+   "lines": [
+    "metro-3",
+    "metro-4"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 708.4,
+   "sy": 505.4
+  },
+  {
+   "id": "st265",
+   "name": "Сокол",
+   "lat": 55.805267,
+   "lon": 37.515053,
+   "lines": [
+    "metro-2"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 621.2,
+   "sy": 405.1
+  },
+  {
+   "id": "st266",
+   "name": "Соколиная Гора",
+   "lat": 55.77133,
+   "lon": 37.745066,
+   "lines": [
+    "metro-14"
+   ],
+   "types": [
+    "mcc"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 919.5,
+   "sy": 464.7
+  },
+  {
+   "id": "st267",
+   "name": "Сокольники",
+   "lat": 55.789497,
+   "lon": 37.679755,
+   "lines": [
+    "metro-1",
+    "metro-11"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 834.8,
+   "sy": 432.8
+  },
+  {
+   "id": "st268",
+   "name": "Солнечная",
+   "lat": 55.657245,
+   "lon": 37.384817,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 452.3,
+   "sy": 664.7
+  },
+  {
+   "id": "st269",
+   "name": "Солнцево",
+   "lat": 55.649569,
+   "lon": 37.3911,
+   "lines": [
+    "metro-8A"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 460.5,
+   "sy": 678.2
+  },
+  {
+   "id": "st270",
+   "name": "Сортировочная",
+   "lat": 55.763566,
+   "lon": 37.720776,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 888.0,
+   "sy": 478.3
+  },
+  {
+   "id": "st271",
+   "name": "Спартак",
+   "lat": 55.818304,
+   "lon": 37.435752,
+   "lines": [
+    "metro-7"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 518.4,
+   "sy": 382.3
+  },
+  {
+   "id": "st272",
+   "name": "Спортивная",
+   "lat": 55.723383,
+   "lon": 37.564213,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 684.9,
+   "sy": 548.7
+  },
+  {
+   "id": "st273",
+   "name": "Сретенский бульвар",
+   "lat": 55.766988,
+   "lon": 37.640087,
+   "lines": [
+    "metro-10"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 783.3,
+   "sy": 472.3
+  },
+  {
+   "id": "st274",
+   "name": "Стрешнево",
+   "lat": 55.814468,
+   "lon": 37.488541,
+   "lines": [
+    "mcd-D2",
+    "metro-14"
+   ],
+   "types": [
+    "mcc",
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 586.8,
+   "sy": 389.0
+  },
+  {
+   "id": "st275",
+   "name": "Строгино",
+   "lat": 55.803702,
+   "lon": 37.403083,
+   "lines": [
+    "metro-3"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 476.0,
+   "sy": 407.9
+  },
+  {
+   "id": "st276",
+   "name": "Студенческая",
+   "lat": 55.73883,
+   "lon": 37.54841,
+   "lines": [
+    "metro-4"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 664.5,
+   "sy": 521.6
+  },
+  {
+   "id": "st277",
+   "name": "Сухаревская",
+   "lat": 55.772955,
+   "lon": 37.631204,
+   "lines": [
+    "metro-6"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 771.8,
+   "sy": 461.8
+  },
+  {
+   "id": "st278",
+   "name": "Сходненская",
+   "lat": 55.850481,
+   "lon": 37.439774,
+   "lines": [
+    "metro-7"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 523.6,
+   "sy": 325.9
+  },
+  {
+   "id": "st279",
+   "name": "Сходня",
+   "lat": 55.949653,
+   "lon": 37.299001,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 341.0,
+   "sy": 152.0
+  },
+  {
+   "id": "st280",
+   "name": "Таганская",
+   "lat": 55.741065,
+   "lon": 37.651612,
+   "lines": [
+    "metro-5",
+    "metro-7"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 798.3,
+   "sy": 517.7
+  },
+  {
+   "id": "st281",
+   "name": "Тверская",
+   "lat": 55.764895,
+   "lon": 37.606313,
+   "lines": [
+    "metro-2"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 739.5,
+   "sy": 475.9
+  },
+  {
+   "id": "st282",
+   "name": "Театральная",
+   "lat": 55.757507,
+   "lon": 37.619191,
+   "lines": [
+    "metro-2"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 756.2,
+   "sy": 488.9
+  },
+  {
+   "id": "st283",
+   "name": "Текстильщики",
+   "lat": 55.707784,
+   "lon": 37.729835,
+   "lines": [
+    "mcd-D2",
+    "metro-11",
+    "metro-7"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 899.7,
+   "sy": 576.1
+  },
+  {
+   "id": "st284",
+   "name": "Терехово",
+   "lat": 55.748029,
+   "lon": 37.459643,
+   "lines": [
+    "metro-11"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 549.3,
+   "sy": 505.5
+  },
+  {
+   "id": "st285",
+   "name": "Технопарк",
+   "lat": 55.693623,
+   "lon": 37.664435,
+   "lines": [
+    "metro-2"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 814.9,
+   "sy": 600.9
+  },
+  {
+   "id": "st286",
+   "name": "Тимирязевская",
+   "lat": 55.817126,
+   "lon": 37.576389,
+   "lines": [
+    "mcd-D1",
+    "metro-9"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 700.7,
+   "sy": 384.4
+  },
+  {
+   "id": "st287",
+   "name": "Толстопальцево",
+   "lat": 55.607609,
+   "lon": 37.185821,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 194.2,
+   "sy": 751.7
+  },
+  {
+   "id": "st288",
+   "name": "Томилино",
+   "lat": 55.655075,
+   "lon": 37.955041,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1191.8,
+   "sy": 668.5
+  },
+  {
+   "id": "st289",
+   "name": "Третьяковская",
+   "lat": 55.741284,
+   "lon": 37.627308,
+   "lines": [
+    "metro-6",
+    "metro-8"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 766.8,
+   "sy": 517.3
+  },
+  {
+   "id": "st290",
+   "name": "Трикотажная",
+   "lat": 55.833085,
+   "lon": 37.399338,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 471.1,
+   "sy": 356.4
+  },
+  {
+   "id": "st291",
+   "name": "Тропарёво",
+   "lat": 55.645857,
+   "lon": 37.472526,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 566.0,
+   "sy": 684.7
+  },
+  {
+   "id": "st292",
+   "name": "Трубная",
+   "lat": 55.769114,
+   "lon": 37.619551,
+   "lines": [
+    "metro-10"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 756.7,
+   "sy": 468.5
+  },
+  {
+   "id": "st293",
+   "name": "Тульская",
+   "lat": 55.708665,
+   "lon": 37.622817,
+   "lines": [
+    "metro-9"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 760.9,
+   "sy": 574.5
+  },
+  {
+   "id": "st294",
+   "name": "Тургеневская",
+   "lat": 55.766492,
+   "lon": 37.637467,
+   "lines": [
+    "metro-6"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 779.9,
+   "sy": 473.1
+  },
+  {
+   "id": "st295",
+   "name": "Тушинская",
+   "lat": 55.826529,
+   "lon": 37.436976,
+   "lines": [
+    "mcd-D2",
+    "metro-7"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 519.9,
+   "sy": 367.9
+  },
+  {
+   "id": "st296",
+   "name": "Тёплый Стан",
+   "lat": 55.618862,
+   "lon": 37.508218,
+   "lines": [
+    "metro-6"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 612.3,
+   "sy": 732.0
+  },
+  {
+   "id": "st297",
+   "name": "Угрешская",
+   "lat": 55.71845,
+   "lon": 37.697707,
+   "lines": [
+    "metro-14"
+   ],
+   "types": [
+    "mcc"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 858.1,
+   "sy": 557.4
+  },
+  {
+   "id": "st298",
+   "name": "Удельная",
+   "lat": 55.634565,
+   "lon": 38.044237,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1307.4,
+   "sy": 704.5
+  },
+  {
+   "id": "st299",
+   "name": "Улица 1905 года",
+   "lat": 55.764861,
+   "lon": 37.561341,
+   "lines": [
+    "metro-7"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 681.2,
+   "sy": 476.0
+  },
+  {
+   "id": "st300",
+   "name": "Улица Академика Янгеля",
+   "lat": 55.594986,
+   "lon": 37.600436,
+   "lines": [
+    "metro-9"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 731.9,
+   "sy": 773.9
+  },
+  {
+   "id": "st301",
+   "name": "Улица Горчакова",
+   "lat": 55.541695,
+   "lon": 37.530718,
+   "lines": [
+    "metro-12"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 641.5,
+   "sy": 867.3
+  },
+  {
+   "id": "st302",
+   "name": "Улица Дмитриевского",
+   "lat": 55.710103,
+   "lon": 37.880201,
+   "lines": [
+    "metro-15"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1094.7,
+   "sy": 572.0
+  },
+  {
+   "id": "st303",
+   "name": "Улица Скобелевская",
+   "lat": 55.548108,
+   "lon": 37.554625,
+   "lines": [
+    "metro-12"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 672.5,
+   "sy": 856.1
+  },
+  {
+   "id": "st304",
+   "name": "Улица Старокачаловская",
+   "lat": 55.568955,
+   "lon": 37.576652,
+   "lines": [
+    "metro-12"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 701.1,
+   "sy": 819.5
+  },
+  {
+   "id": "st305",
+   "name": "Университет",
+   "lat": 55.692663,
+   "lon": 37.533285,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 644.8,
+   "sy": 602.6
+  },
+  {
+   "id": "st306",
+   "name": "Ухтомская",
+   "lat": 55.698627,
+   "lon": 37.864503,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1074.4,
+   "sy": 592.1
+  },
+  {
+   "id": "st307",
+   "name": "Фабричная",
+   "lat": 55.572849,
+   "lon": 38.206597,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1518.0,
+   "sy": 812.7
+  },
+  {
+   "id": "st308",
+   "name": "Филатов Луг",
+   "lat": 55.601528,
+   "lon": 37.407426,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 481.6,
+   "sy": 762.4
+  },
+  {
+   "id": "st309",
+   "name": "Фили",
+   "lat": 55.746127,
+   "lon": 37.514827,
+   "lines": [
+    "mcd-D1",
+    "metro-4"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 620.9,
+   "sy": 508.8
+  },
+  {
+   "id": "st310",
+   "name": "Филёвский парк",
+   "lat": 55.739508,
+   "lon": 37.483372,
+   "lines": [
+    "metro-4"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 580.1,
+   "sy": 520.5
+  },
+  {
+   "id": "st311",
+   "name": "Фирсановская",
+   "lat": 55.960623,
+   "lon": 37.249698,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 277.1,
+   "sy": 132.7
+  },
+  {
+   "id": "st312",
+   "name": "Фонвизинская",
+   "lat": 55.822916,
+   "lon": 37.587637,
+   "lines": [
+    "metro-10"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 715.3,
+   "sy": 374.2
+  },
+  {
+   "id": "st313",
+   "name": "Фрунзенская",
+   "lat": 55.726879,
+   "lon": 37.57833,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 703.3,
+   "sy": 542.6
+  },
+  {
+   "id": "st314",
+   "name": "Химки",
+   "lat": 55.893615,
+   "lon": 37.453664,
+   "lines": [
+    "mcd-D3"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 541.6,
+   "sy": 250.2
+  },
+  {
+   "id": "st315",
+   "name": "Хлебниково",
+   "lat": 55.970958,
+   "lon": 37.504511,
+   "lines": [
+    "mcd-D1"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 607.5,
+   "sy": 114.6
+  },
+  {
+   "id": "st316",
+   "name": "Ховрино",
+   "lat": 55.878152,
+   "lon": 37.480854,
+   "lines": [
+    "mcd-D3",
+    "metro-2"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 576.8,
+   "sy": 277.3
+  },
+  {
+   "id": "st317",
+   "name": "Хорошёво",
+   "lat": 55.777144,
+   "lon": 37.507379,
+   "lines": [
+    "metro-14"
+   ],
+   "types": [
+    "mcc"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 611.2,
+   "sy": 454.5
+  },
+  {
+   "id": "st318",
+   "name": "Хорошёвская",
+   "lat": 55.776695,
+   "lon": 37.519137,
+   "lines": [
+    "metro-11"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 626.5,
+   "sy": 455.2
+  },
+  {
+   "id": "st319",
+   "name": "ЦСКА",
+   "lat": 55.786561,
+   "lon": 37.533201,
+   "lines": [
+    "metro-11"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 644.7,
+   "sy": 437.9
+  },
+  {
+   "id": "st320",
+   "name": "Царицыно",
+   "lat": 55.621481,
+   "lon": 37.669238,
+   "lines": [
+    "mcd-D2",
+    "metro-2"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 821.1,
+   "sy": 727.4
+  },
+  {
+   "id": "st321",
+   "name": "Цветной бульвар",
+   "lat": 55.770872,
+   "lon": 37.61791,
+   "lines": [
+    "metro-9"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 754.6,
+   "sy": 465.5
+  },
+  {
+   "id": "st322",
+   "name": "Черкизовская",
+   "lat": 55.803881,
+   "lon": 37.745032,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 919.4,
+   "sy": 407.6
+  },
+  {
+   "id": "st323",
+   "name": "Чертановская",
+   "lat": 55.640455,
+   "lon": 37.60669,
+   "lines": [
+    "metro-9"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 740.0,
+   "sy": 694.1
+  },
+  {
+   "id": "st324",
+   "name": "Чеховская",
+   "lat": 55.764833,
+   "lon": 37.609087,
+   "lines": [
+    "metro-9"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 743.1,
+   "sy": 476.0
+  },
+  {
+   "id": "st325",
+   "name": "Чистые пруды",
+   "lat": 55.765871,
+   "lon": 37.639028,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 782.0,
+   "sy": 474.2
+  },
+  {
+   "id": "st326",
+   "name": "Чкаловская",
+   "lat": 55.756702,
+   "lon": 37.656998,
+   "lines": [
+    "metro-10"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 805.3,
+   "sy": 490.3
+  },
+  {
+   "id": "st327",
+   "name": "Чухлинка",
+   "lat": 55.733617,
+   "lon": 37.764437,
+   "lines": [
+    "mcd-D4"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 944.6,
+   "sy": 530.8
+  },
+  {
+   "id": "st328",
+   "name": "Шаболовская",
+   "lat": 55.719987,
+   "lon": 37.607696,
+   "lines": [
+    "metro-6"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 741.3,
+   "sy": 554.7
+  },
+  {
+   "id": "st329",
+   "name": "Шелепиха",
+   "lat": 55.757306,
+   "lon": 37.525668,
+   "lines": [
+    "metro-14"
+   ],
+   "types": [
+    "mcc"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 635.0,
+   "sy": 489.2
+  },
+  {
+   "id": "st330",
+   "name": "Шереметьевская",
+   "lat": 55.983733,
+   "lon": 37.498885,
+   "lines": [
+    "mcd-D1"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 600.2,
+   "sy": 92.2
+  },
+  {
+   "id": "st331",
+   "name": "Шипиловская",
+   "lat": 55.621027,
+   "lon": 37.743639,
+   "lines": [
+    "metro-10"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 917.6,
+   "sy": 728.2
+  },
+  {
+   "id": "st332",
+   "name": "Шоссе Энтузиастов",
+   "lat": 55.758236,
+   "lon": 37.747762,
+   "lines": [
+    "metro-14",
+    "metro-8"
+   ],
+   "types": [
+    "mcc",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 923.0,
+   "sy": 487.6
+  },
+  {
+   "id": "st333",
+   "name": "Щербинка",
+   "lat": 55.510125,
+   "lon": 37.562184,
+   "lines": [
+    "mcd-D2"
+   ],
+   "types": [
+    "mcd"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 682.3,
+   "sy": 922.7
+  },
+  {
+   "id": "st334",
+   "name": "Щукинская",
+   "lat": 55.808461,
+   "lon": 37.464701,
+   "lines": [
+    "mcd-D2",
+    "metro-7"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 555.9,
+   "sy": 399.5
+  },
+  {
+   "id": "st335",
+   "name": "Щёлковская",
+   "lat": 55.809337,
+   "lon": 37.798572,
+   "lines": [
+    "metro-3"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 988.9,
+   "sy": 398.0
+  },
+  {
+   "id": "st336",
+   "name": "Электрозаводская",
+   "lat": 55.781237,
+   "lon": 37.703523,
+   "lines": [
+    "mcd-D3",
+    "metro-11",
+    "metro-3"
+   ],
+   "types": [
+    "mcd",
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 865.6,
+   "sy": 447.3
+  },
+  {
+   "id": "st337",
+   "name": "Юго-Восточная",
+   "lat": 55.705036,
+   "lon": 37.818976,
+   "lines": [
+    "metro-15"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 1015.3,
+   "sy": 580.9
+  },
+  {
+   "id": "st338",
+   "name": "Юго-Западная",
+   "lat": 55.663647,
+   "lon": 37.483219,
+   "lines": [
+    "metro-1"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 579.9,
+   "sy": 653.5
+  },
+  {
+   "id": "st339",
+   "name": "Южная",
+   "lat": 55.622256,
+   "lon": 37.609219,
+   "lines": [
+    "metro-9"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 743.3,
+   "sy": 726.0
+  },
+  {
+   "id": "st340",
+   "name": "Ясенево",
+   "lat": 55.606306,
+   "lon": 37.533407,
+   "lines": [
+    "metro-6"
+   ],
+   "types": [
+    "metro"
+   ],
+   "status": "active",
+   "source": "data/lines.json",
+   "checked_at": "2026-11-19",
+   "sx": 645.0,
+   "sy": 754.0
+  }
+ ],
+ "transfers": [
+  {
+   "station": "st001",
+   "name": "Авиамоторная",
+   "lines": [
+    "mcd-D3",
+    "metro-11",
+    "metro-8"
+   ]
+  },
+  {
+   "station": "st002",
+   "name": "Автозаводская",
+   "lines": [
+    "metro-14",
+    "metro-2"
+   ]
+  },
+  {
+   "station": "st008",
+   "name": "Аминьевская",
+   "lines": [
+    "mcd-D4",
+    "metro-11"
+   ]
+  },
+  {
+   "station": "st009",
+   "name": "Андроновка",
+   "lines": [
+    "mcd-D3",
+    "metro-14"
+   ]
+  },
+  {
+   "station": "st013",
+   "name": "Арбатская",
+   "lines": [
+    "metro-3",
+    "metro-4"
+   ]
+  },
+  {
+   "station": "st021",
+   "name": "Беговая",
+   "lines": [
+    "mcd-D1",
+    "metro-7"
+   ]
+  },
+  {
+   "station": "st024",
+   "name": "Белорусская",
+   "lines": [
+    "mcd-D1",
+    "mcd-D4",
+    "metro-2",
+    "metro-5"
+   ]
+  },
+  {
+   "station": "st034",
+   "name": "Ботанический сад",
+   "lines": [
+    "metro-14",
+    "metro-6"
+   ]
+  },
+  {
+   "station": "st038",
+   "name": "Бульвар Рокоссовского",
+   "lines": [
+    "metro-1",
+    "metro-14"
+   ]
+  },
+  {
+   "station": "st048",
+   "name": "Владыкино",
+   "lines": [
+    "metro-14",
+    "metro-9"
+   ]
+  },
+  {
+   "station": "st055",
+   "name": "Волоколамская",
+   "lines": [
+    "mcd-D2",
+    "metro-3"
+   ]
+  },
+  {
+   "station": "st058",
+   "name": "Выхино",
+   "lines": [
+    "mcd-D3",
+    "metro-7"
+   ]
+  },
+  {
+   "station": "st067",
+   "name": "Дмитровская",
+   "lines": [
+    "mcd-D2",
+    "metro-9"
+   ]
+  },
+  {
+   "station": "st088",
+   "name": "Каширская",
+   "lines": [
+    "metro-11",
+    "metro-2"
+   ]
+  },
+  {
+   "station": "st089",
+   "name": "Киевская",
+   "lines": [
+    "metro-3",
+    "metro-4",
+    "metro-5"
+   ]
+  },
+  {
+   "station": "st090",
+   "name": "Китай-город",
+   "lines": [
+    "metro-6",
+    "metro-7"
+   ]
+  },
+  {
+   "station": "st095",
+   "name": "Комсомольская",
+   "lines": [
+    "metro-1",
+    "metro-5"
+   ]
+  },
+  {
+   "station": "st098",
+   "name": "Косино",
+   "lines": [
+    "mcd-D3",
+    "metro-15"
+   ]
+  },
+  {
+   "station": "st117",
+   "name": "Кунцевская",
+   "lines": [
+    "mcd-D1",
+    "metro-11",
+    "metro-3",
+    "metro-4"
+   ]
+  },
+  {
+   "station": "st118",
+   "name": "Курская",
+   "lines": [
+    "mcd-D2",
+    "mcd-D4",
+    "metro-3",
+    "metro-5"
+   ]
+  },
+  {
+   "station": "st121",
+   "name": "Кутузовская",
+   "lines": [
+    "mcd-D4",
+    "metro-14",
+    "metro-4"
+   ]
+  },
+  {
+   "station": "st139",
+   "name": "Люблино",
+   "lines": [
+    "mcd-D2",
+    "metro-10"
+   ]
+  },
+  {
+   "station": "st143",
+   "name": "Марьина Роща",
+   "lines": [
+    "mcd-D2",
+    "mcd-D4",
+    "metro-10"
+   ]
+  },
+  {
+   "station": "st150",
+   "name": "Минская",
+   "lines": [
+    "mcd-D4",
+    "metro-8A"
+   ]
+  },
+  {
+   "station": "st154",
+   "name": "Мичуринский проспект",
+   "lines": [
+    "metro-11",
+    "metro-8A"
+   ]
+  },
+  {
+   "station": "st158",
+   "name": "Москва-Сити",
+   "lines": [
+    "mcd-D1",
+    "mcd-D4",
+    "metro-14",
+    "metro-4A",
+    "metro-8A"
+   ]
+  },
+  {
+   "station": "st171",
+   "name": "Нижегородская",
+   "lines": [
+    "mcd-D4",
+    "metro-11",
+    "metro-14",
+    "metro-15"
+   ]
+  },
+  {
+   "station": "st174",
+   "name": "Новогиреево",
+   "lines": [
+    "mcd-D4",
+    "metro-8"
+   ]
+  },
+  {
+   "station": "st183",
+   "name": "Новохохловская",
+   "lines": [
+    "mcd-D2",
+    "metro-14"
+   ]
+  },
+  {
+   "station": "st188",
+   "name": "Окружная",
+   "lines": [
+    "mcd-D1",
+    "metro-10",
+    "metro-14"
+   ]
+  },
+  {
+   "station": "st190",
+   "name": "Октябрьская",
+   "lines": [
+    "metro-5",
+    "metro-6"
+   ]
+  },
+  {
+   "station": "st201",
+   "name": "Павелецкая",
+   "lines": [
+    "metro-2",
+    "metro-5"
+   ]
+  },
+  {
+   "station": "st205",
+   "name": "Парк Культуры",
+   "lines": [
+    "metro-1",
+    "metro-5"
+   ]
+  },
+  {
+   "station": "st212",
+   "name": "Перово",
+   "lines": [
+    "mcd-D3",
+    "metro-8"
+   ]
+  },
+  {
+   "station": "st214",
+   "name": "Петровско-Разумовская",
+   "lines": [
+    "mcd-D1",
+    "mcd-D3",
+    "metro-10",
+    "metro-9"
+   ]
+  },
+  {
+   "station": "st215",
+   "name": "Печатники",
+   "lines": [
+    "mcd-D2",
+    "metro-10",
+    "metro-11"
+   ]
+  },
+  {
+   "station": "st220",
+   "name": "Площадь трёх вокзалов",
+   "lines": [
+    "mcd-D2",
+    "mcd-D4"
+   ]
+  },
+  {
+   "station": "st234",
+   "name": "Проспект Вернадского",
+   "lines": [
+    "metro-1",
+    "metro-11"
+   ]
+  },
+  {
+   "station": "st235",
+   "name": "Проспект Мира",
+   "lines": [
+    "metro-5",
+    "metro-6"
+   ]
+  },
+  {
+   "station": "st245",
+   "name": "Рижская",
+   "lines": [
+    "mcd-D2",
+    "metro-6"
+   ]
+  },
+  {
+   "station": "st250",
+   "name": "Савёловская",
+   "lines": [
+    "mcd-D1",
+    "mcd-D4",
+    "metro-11",
+    "metro-9"
+   ]
+  },
+  {
+   "station": "st263",
+   "name": "Славянский бульвар",
+   "lines": [
+    "mcd-D1",
+    "metro-3"
+   ]
+  },
+  {
+   "station": "st264",
+   "name": "Смоленская",
+   "lines": [
+    "metro-3",
+    "metro-4"
+   ]
+  },
+  {
+   "station": "st267",
+   "name": "Сокольники",
+   "lines": [
+    "metro-1",
+    "metro-11"
+   ]
+  },
+  {
+   "station": "st274",
+   "name": "Стрешнево",
+   "lines": [
+    "mcd-D2",
+    "metro-14"
+   ]
+  },
+  {
+   "station": "st280",
+   "name": "Таганская",
+   "lines": [
+    "metro-5",
+    "metro-7"
+   ]
+  },
+  {
+   "station": "st283",
+   "name": "Текстильщики",
+   "lines": [
+    "mcd-D2",
+    "metro-11",
+    "metro-7"
+   ]
+  },
+  {
+   "station": "st286",
+   "name": "Тимирязевская",
+   "lines": [
+    "mcd-D1",
+    "metro-9"
+   ]
+  },
+  {
+   "station": "st289",
+   "name": "Третьяковская",
+   "lines": [
+    "metro-6",
+    "metro-8"
+   ]
+  },
+  {
+   "station": "st295",
+   "name": "Тушинская",
+   "lines": [
+    "mcd-D2",
+    "metro-7"
+   ]
+  },
+  {
+   "station": "st309",
+   "name": "Фили",
+   "lines": [
+    "mcd-D1",
+    "metro-4"
+   ]
+  },
+  {
+   "station": "st316",
+   "name": "Ховрино",
+   "lines": [
+    "mcd-D3",
+    "metro-2"
+   ]
+  },
+  {
+   "station": "st320",
+   "name": "Царицыно",
+   "lines": [
+    "mcd-D2",
+    "metro-2"
+   ]
+  },
+  {
+   "station": "st332",
+   "name": "Шоссе Энтузиастов",
+   "lines": [
+    "metro-14",
+    "metro-8"
+   ]
+  },
+  {
+   "station": "st334",
+   "name": "Щукинская",
+   "lines": [
+    "mcd-D2",
+    "metro-7"
+   ]
+  },
+  {
+   "station": "st336",
+   "name": "Электрозаводская",
+   "lines": [
+    "mcd-D3",
+    "metro-11",
+    "metro-3"
+   ]
+  }
+ ],
+ "counts": {
+  "records": 419,
+  "stations": 340,
+  "transfers": 56,
+  "lines": 20
+ }
+}
