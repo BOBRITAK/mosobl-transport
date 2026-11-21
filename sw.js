@@ -1,8 +1,8 @@
-/* Service worker: офлайн-доступ и мгновенный сброс старого кэша.
+﻿/* Service worker: офлайн-доступ и мгновенный сброс старого кэша.
    Важно: HTML отдаётся по принципу «сеть, потом кэш»,
    иначе обновления сайта никогда не доезжают до браузера. */
 
-const CACHE = 'transport-podmoskovye-v4';
+const CACHE = 'transport-podmoskovye-v5';
 
 const PRECACHE = [
   './',

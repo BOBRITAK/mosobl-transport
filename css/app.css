@@ -330,7 +330,7 @@ input { outline: none; }
 .scheme svg { display: block; width: 100%; height: 100%; touch-action: none; }
 .leaflet-container { background: #0a0f18; font: inherit; }
 /* подложка приглушается, чтобы линии и станции читались поверх неё */
-.base-tiles { filter: brightness(.58) saturate(.78) contrast(1.04); }
+.base-tiles { filter: brightness(.74) saturate(.85) contrast(1.06); }
 .leaflet-control-attribution {
   background: rgba(10, 14, 20, .78) !important;
   color: #8fa0b8 !important;
@@ -548,6 +548,8 @@ input { outline: none; }
 .scheme__dot { cursor: pointer; transition: opacity .15s; }
 .scheme__dot:hover { filter: brightness(1.45); }
 .scheme__line { fill: none; stroke-linejoin: round; stroke-linecap: round; transition: opacity .15s; }
+/* мягкая тень придаёт линиям объём, как на печатных схемах */
+.scheme-lines { filter: drop-shadow(0 1.5px 3px rgba(0, 0, 0, .55)); }
 .scheme__roundel text { font-family: inherit; user-select: none; pointer-events: none; }
 .scheme__roundel circle { stroke: #0b1119; }
 .scheme__legend {
@@ -599,6 +601,57 @@ input { outline: none; }
   white-space: nowrap;
   z-index: 900;
 }
+
+/* ---------- варианты маршрута ---------- */
+.variants { display: grid; gap: 6px; }
+.variant {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 9px 11px;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, .03);
+  border: 1px solid var(--line);
+  transition: background .15s, border-color .15s, transform .08s;
+}
+.variant:hover { background: rgba(255, 255, 255, .06); }
+.variant:active { transform: translateY(1px); }
+.variant.is-active {
+  border-color: rgba(255, 79, 104, .65);
+  background: linear-gradient(180deg, rgba(255, 58, 85, .18), rgba(255, 58, 85, .05));
+  box-shadow: inset 0 0 0 1px rgba(255, 79, 104, .25);
+}
+.variant__top { display: flex; align-items: baseline; gap: 8px; }
+.variant__time { font-size: 15px; font-weight: 800; letter-spacing: .2px; color: #fff; }
+.variant__label {
+  font-size: 10.5px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .45px;
+}
+.variant.is-active .variant__label { color: var(--accent-2); }
+.variant__meta { font-size: 11.5px; color: var(--muted-2); margin-top: 2px; }
+.variant__chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.variant__chips .badge-line { font-size: 10px; padding: 1px 6px; }
+
+/* ---------- пересадки в карточке станции ---------- */
+.station-card__transfers { margin-top: 10px; display: grid; gap: 6px; }
+.transfers__title {
+  font-size: 10.5px; font-weight: 700; letter-spacing: .5px;
+  text-transform: uppercase; color: var(--muted-2);
+}
+.transfers__row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 12px; }
+.transfers__label { color: var(--muted-2); min-width: 62px; }
+.transfers__value { color: #cfd8e6; line-height: 1.35; }
+.transfers__routes { color: var(--muted-2); font-size: 11px; }
+.transfers__link { color: var(--accent-2); text-decoration: none; border-bottom: 1px dashed rgba(255, 107, 127, .5); }
+.transfers__link:hover { color: #fff; border-bottom-color: #fff; }
+.transfer-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 3px 8px; border-radius: 7px;
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid var(--line);
+  font-size: 11.5px; color: #dbe3f0;
+}
+.transfer-chip:hover { background: rgba(255, 255, 255, .12); }
+.transfer-chip i { width: 7px; height: 7px; border-radius: 50%; flex: 0 0 auto; }
 
 /* ---------- Доступность ---------- */
 :focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }

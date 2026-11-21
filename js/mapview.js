@@ -8,12 +8,13 @@ import { boundsOf } from './network.js';
 
 const TILE_SOURCES = [
   {
-    name: 'CARTO Dark',
-    url: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+    // тёмная подложка без ключа и без водяных знаков
+    name: 'Esri Dark Gray',
+    url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
     options: {
-      subdomains: 'abcd',
-      maxZoom: 20,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      maxZoom: 19,
+      maxNativeZoom: 16,
+      attribution: 'Подложка: Esri, HERE, Garmin, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     },
   },
   {
@@ -218,6 +219,7 @@ export class MapView {
     for (const place of this.network.places) {
       // станция видна, если видна хотя бы одна из её линий
       if (!place.lineRefs.some((l) => this.visibleTypes.has(l.type))) continue;
+      if (this.focusSet && !place.lineRefs.some((l) => this.focusSet.has(l.id))) continue;
       const rank = place.isTransfer ? 0 : place.isTerminal ? 1 : 2;
       if (rank === 2 && !showAll) continue;
       if (rank === 1 && !showTerminals) continue;
@@ -290,23 +292,44 @@ export class MapView {
     this.fit(new Set(['metro', 'mcc']));
   }
 
+  /* ---------- маршрут и затемнение лишних линий ---------- */
+  focusLines(ids) {
+    this.focusSet = ids ? new Set(ids) : null;
+    for (const [id, bar] of this.lineBars) {
+      const active = !this.focusSet || this.focusSet.has(id);
+      bar.stroke.setStyle({ opacity: active ? 1 : 0.1 });
+      bar.casing.setStyle({ opacity: active ? 0.85 : 0.03 });
+    }
+    for (const entry of this.placeMarkers.values()) {
+      const active = !this.focusSet || entry.place.lineRefs.some((l) => this.focusSet.has(l.id));
+      entry.marker.setStyle({
+        opacity: active ? 1 : 0.16,
+        fillOpacity: active ? 1 : 0.16,
+      });
+    }
+    this.scheduleLabels(true);
+  }
+
   /* ---------- маршрут ---------- */
   setRoute(route) {
     this.route = route;
     this.routeGroup.clearLayers();
-    if (!route || !route.ok) return;
+    if (!route || !route.ok) { this.focusLines(null); return; }
+
+    this.focusLines(route.lineIds);
 
     const path = route.path;
     if (path.length > 1) {
-      L.polyline(path, { pane: 'routePane', color: '#05080d', weight: 12, opacity: 0.9, lineCap: 'round', lineJoin: 'round' }).addTo(this.routeGroup);
-      L.polyline(path, { pane: 'routePane', color: '#ff2f4c', weight: 5.5, opacity: 1, lineCap: 'round', lineJoin: 'round' }).addTo(this.routeGroup);
+      L.polyline(path, { pane: 'routePane', color: '#05080d', weight: 14, opacity: 0.95, lineCap: 'round', lineJoin: 'round' }).addTo(this.routeGroup);
+      L.polyline(path, { pane: 'routePane', color: '#ff2f4c', weight: 8, opacity: 0.35, lineCap: 'round', lineJoin: 'round' }).addTo(this.routeGroup);
+      L.polyline(path, { pane: 'routePane', color: '#fff', weight: 4.2, opacity: 1, lineCap: 'round', lineJoin: 'round' }).addTo(this.routeGroup);
     }
     const start = path[0];
     const end = path[path.length - 1];
-    L.circleMarker(start, { pane: 'routePane', radius: 7, color: '#0a0e15', weight: 3, fillColor: '#2fbf71', fillOpacity: 1 }).addTo(this.routeGroup);
-    L.circleMarker(end, { pane: 'routePane', radius: 7, color: '#0a0e15', weight: 3, fillColor: '#ff2f4c', fillOpacity: 1 }).addTo(this.routeGroup);
+    L.circleMarker(start, { pane: 'routePane', radius: 8, color: '#0a0e15', weight: 3, fillColor: '#2fbf71', fillOpacity: 1 }).addTo(this.routeGroup);
+    L.circleMarker(end, { pane: 'routePane', radius: 8, color: '#0a0e15', weight: 3, fillColor: '#ff2f4c', fillOpacity: 1 }).addTo(this.routeGroup);
     if (path.length > 1) {
-      this.map.fitBounds(L.latLngBounds(path).pad(0.15), { maxZoom: 12 });
+      this.map.fitBounds(L.latLngBounds(path).pad(0.18), { maxZoom: 12 });
     }
   }
 

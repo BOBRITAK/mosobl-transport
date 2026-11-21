@@ -1,4 +1,4 @@
-/* ===========================================================
+﻿/* ===========================================================
    Режим «Схема»: топологическая схема в духе Яндекс.Метро.
 
    Геометрия приходит из data/scheme_layout.json — её считает
@@ -13,7 +13,7 @@ const NS = 'http://www.w3.org/2000/svg';
 
 const STYLE = {
   casing: 3.6,
-  lineWidth: { metro: 7, mcc: 6, mcd: 6, project: 5 },
+  lineWidth: { metro: 7.6, mcc: 6.6, mcd: 6.6, project: 5.4 },
   stationR: 3.6,
   transferR: 5.4,
   labelFont: 11,
@@ -27,6 +27,73 @@ function el(name, attrs = {}) {
     if (v !== null && v !== undefined) node.setAttribute(k, v);
   }
   return node;
+}
+
+/** Путь со скруглёнными поворотами: так линии выглядят нарисованными, а не ломаными. */
+function corner(p1, p0, p2, radius) {
+  const v1 = { x: p0[0] - p1[0], y: p0[1] - p1[1] };
+  const v2 = { x: p2[0] - p1[0], y: p2[1] - p1[1] };
+  const l1 = Math.hypot(v1.x, v1.y);
+  const l2 = Math.hypot(v2.x, v2.y);
+  if (l1 < 0.01 || l2 < 0.01) return null;
+  const dot = (v1.x * v2.x + v1.y * v2.y) / (l1 * l2);
+  // почти прямая линия (векторы противоположны) — скруглять нечего
+  if (dot < -0.995) return null;
+  const r = Math.min(radius, l1 * 0.42, l2 * 0.42);
+  return {
+    a: { x: p1[0] + (v1.x / l1) * r, y: p1[1] + (v1.y / l1) * r },
+    b: { x: p1[0] + (v2.x / l2) * r, y: p1[1] + (v2.y / l2) * r },
+  };
+}
+
+function roundedPath(points, radius = 12) {
+  const n = points.length;
+  if (n < 2) return '';
+  const f = (v) => v.toFixed(1);
+  if (n === 2) return `M${f(points[0][0])} ${f(points[0][1])}L${f(points[1][0])} ${f(points[1][1])}`;
+
+  const out = [`M${f(points[0][0])} ${f(points[0][1])}`];
+  for (let i = 1; i < n - 1; i++) {
+    const c = corner(points[i], points[i - 1], points[i + 1], radius);
+    if (!c) { out.push(`L${f(points[i][0])} ${f(points[i][1])}`); continue; }
+    out.push(`L${f(c.a.x)} ${f(c.a.y)}`);
+    out.push(`Q${f(points[i][0])} ${f(points[i][1])} ${f(c.b.x)} ${f(c.b.y)}`);
+  }
+  const last = points[n - 1];
+  out.push(`L${f(last[0])} ${f(last[1])}`);
+  return out.join('');
+}
+
+/** Замкнутый путь для кольцевых линий: углы скругляются и на «стыке». */
+function roundedRing(pts, radius = 12) {
+  const n = pts.length;
+  if (n < 3) return roundedPath(pts, radius);
+  const f = (v) => v.toFixed(1);
+  const out = [];
+  for (let i = 0; i < n; i++) {
+    const p1 = pts[i];
+    const p0 = pts[(i - 1 + n) % n];
+    const p2 = pts[(i + 1) % n];
+    const c = corner(p1, p0, p2, radius);
+    if (!c) {
+      out.push(`${i ? 'L' : 'M'}${f(p1[0])} ${f(p1[1])}`);
+      continue;
+    }
+    out.push(`${i ? 'L' : 'M'}${f(c.a.x)} ${f(c.a.y)}`);
+    out.push(`Q${f(p1[0])} ${f(p1[1])} ${f(c.b.x)} ${f(c.b.y)}`);
+  }
+  out.push('Z');
+  return out.join('');
+}
+
+/** Путь для линии: у кольца убираем дубликат первой точки и замыкаем. */
+function linePath(points, ring) {
+  if (!ring) return roundedPath(points);
+  const pts = points.slice();
+  const first = pts[0];
+  const last = pts[pts.length - 1];
+  if (pts.length > 3 && Math.hypot(first[0] - last[0], first[1] - last[1]) < 0.5) pts.pop();
+  return roundedRing(pts);
 }
 
 export class SchemeView {
@@ -132,12 +199,13 @@ export class SchemeView {
     this.gRoundels.replaceChildren();
 
     const d = (pts) => pts.map((p, i) => `${i ? 'L' : 'M'}${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' ');
+    void d;
 
     for (const line of lines) {
       if (line.points.length < 2) continue;
-      const path = d(line.points);
+      const path = linePath(line.points, line.ring);
       const casing = el('path', {
-        d: path + (line.ring ? ' Z' : ''),
+        d: path,
         fill: 'none',
         stroke: '#05080d',
         'stroke-linejoin': 'round',
@@ -146,7 +214,7 @@ export class SchemeView {
         'data-line': line.id,
       });
       const stroke = el('path', {
-        d: path + (line.ring ? ' Z' : ''),
+        d: path,
         fill: 'none',
         stroke: line.color,
         'stroke-linejoin': 'round',
@@ -278,6 +346,12 @@ export class SchemeView {
     this.applyVisibility();
   }
 
+  /** Затемнить всё, что не входит в выбранный маршрут (null — вернуть всё). */
+  focusLines(ids) {
+    this.focusSet = ids ? new Set(ids) : null;
+    this.applyVisibility();
+  }
+
   setLabels(on) {
     this.showLabels = on;
     this.applyVisibility();
@@ -286,11 +360,21 @@ export class SchemeView {
 
   applyVisibility() {
     if (!this.layout) return;
-    for (const p of this.gLines.children) p.style.display = this.visibleTypes.has(p.dataset.type) ? '' : 'none';
-    for (const p of this.gCasing.children) p.style.display = this.visibleTypes.has(p.dataset.type) ? '' : 'none';
+    const focus = this.focusSet;
+    const dimLine = (id, type) => !this.visibleTypes.has(type) || (focus && !focus.has(id));
+    for (const p of this.gLines.children) {
+      p.style.display = this.visibleTypes.has(p.dataset.type) ? '' : 'none';
+      p.style.opacity = dimLine(p.dataset.line, p.dataset.type) ? '0.12' : '';
+    }
+    for (const p of this.gCasing.children) {
+      p.style.display = this.visibleTypes.has(p.dataset.type) ? '' : 'none';
+      p.style.opacity = dimLine(p.dataset.line, p.dataset.type) ? '0.06' : '';
+    }
     for (const g of this.gRoundels.children) {
       const line = this.layout.lines.find((l) => l.id === g.dataset.line);
-      g.style.display = line && this.visibleTypes.has(line.type) ? '' : 'none';
+      const visible = !!line && this.visibleTypes.has(line.type);
+      g.style.display = visible ? '' : 'none';
+      g.style.opacity = line && focus && !focus.has(line.id) ? '0.2' : '';
     }
     for (const node of this.gStations.children) {
       const st = this.stationByName?.get(node.dataset.name);
@@ -299,6 +383,8 @@ export class SchemeView {
         return line && this.visibleTypes.has(line.type);
       }) : true;
       node.style.display = visible ? '' : 'none';
+      const inFocus = !focus || (st && st.lines.some((id) => focus.has(id)));
+      node.style.opacity = inFocus ? '' : '0.18';
     }
     this.layoutLabels();
   }
@@ -322,6 +408,7 @@ export class SchemeView {
 
     const candidates = this.layout.stations
       .filter((st) => visible(st))
+      .filter((st) => !this.focusSet || st.lines.some((id) => this.focusSet.has(id)))
       .filter((st) => showAll || st.transfer || st.lines.length > 1 || this.isLineEnd(st))
       .sort((a, b) => (b.transfer ? 1 : 0) - (a.transfer ? 1 : 0) || a.name.length - b.name.length);
 
