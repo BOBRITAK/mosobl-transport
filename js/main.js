@@ -428,6 +428,20 @@ async function boot() {
 
   // отладочный доступ для проверок в браузере
   window.__tp = { state, mapView, schemeView, network };
+
+  registerServiceWorker();
+}
+
+/* Офлайн-режим и сброс старого кэша. Регистрируем после загрузки,
+   чтобы не конкурировать с первой отрисовкой карты. */
+function registerServiceWorker() {
+  if (!('serviceWorker' in navigator)) return;
+  const start = () => navigator.serviceWorker.register('sw.js', { scope: './' }).catch(() => {
+    /* на file:// или при запрете политики — не критично */
+  });
+  // модуль мог выполниться уже после события load — тогда регистрируем сразу
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', start, { once: true });
 }
 
 function populateDatalist() {
