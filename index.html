@@ -145,7 +145,19 @@
 
     <div class="scheme hidden" id="scheme" aria-label="Схема транспорта">
       <svg id="schemeSvg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Схема линий"></svg>
-      <div class="scheme__legend" id="schemeLegend"></div>
+      <div class="scheme__legend" id="schemeLegend">
+        <span><b>●</b> станция</span>
+        <span><b>◉</b> пересадка</span>
+        <span><b>①</b> номер линии на конце</span>
+        <span><b>—</b> действующая линия</span>
+        <span><b>– –</b> проектируемая</span>
+        <span>колесо — масштаб, перетаскивание — сдвиг</span>
+      </div>
+      <div class="scheme-controls hidden" id="schemeControls">
+        <button type="button" id="schemeZoomIn" aria-label="Приблизить">+</button>
+        <button type="button" id="schemeZoomOut" aria-label="Отдалить">−</button>
+        <button type="button" id="schemeReset" aria-label="Показать всю схему">⤢</button>
+      </div>
     </div>
 
     <div class="topbar">

@@ -9,6 +9,7 @@ import { findRoute } from './router.js';
 
 const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => [...document.querySelectorAll(sel)];
+const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
 const PREF_KEY = 'tp.prefs.v3';
 
 const TYPE_LABEL = { metro: 'метро', mcc: 'МЦК', mcd: 'МЦД', project: 'проектируемая линия' };
@@ -323,8 +324,14 @@ function setMode(mode) {
     mapView.invalidateSize();
     if (state.route && state.route.ok) mapView.setRoute(state.route);
   } else {
-    schemeView.fit();
+    schemeView.resize();
+    if (!schemeView.fitted) {
+      schemeView.fit(isMobile() ? schemeView.coreBox() : null);
+      schemeView.fitted = true;
+    }
   }
+  const schemeCtrl = $('#schemeControls');
+  if (schemeCtrl) schemeCtrl.classList.toggle('hidden', geo);
 }
 
 /* ---------- слои ---------- */
@@ -399,7 +406,11 @@ async function boot() {
   });
 
   mapView.render(network);
-  schemeView.render(network);
+  try {
+    await schemeView.load();
+  } catch (err) {
+    showStatus(`Не удалось загрузить схему: ${err.message}. Переключитесь в «Географию».`, 'error', 9000);
+  }
   readSwitchesFromState();
   applyLayers();
   mapView.setLabels(state.labels);
@@ -475,7 +486,15 @@ function bindUI() {
   document.getElementById(LABELS_ID)?.addEventListener('change', (e) => {
     state.labels = e.target.checked;
     mapView.setLabels(state.labels);
+    schemeView.setLabels(state.labels);
     savePrefs();
+  });
+
+  // управление схемой
+  $('#schemeZoomIn')?.addEventListener('click', () => schemeView.zoomIn());
+  $('#schemeZoomOut')?.addEventListener('click', () => schemeView.zoomOut());
+  $('#schemeReset')?.addEventListener('click', () => {
+    schemeView.fit(isMobile() ? schemeView.coreBox() : null);
   });
 
   // маршрут

@@ -535,7 +535,7 @@ input { outline: none; }
 
 /* ---------- Схема ---------- */
 .scheme__label {
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight: 600;
   fill: #dfe7f3;
   paint-order: stroke;
@@ -544,23 +544,61 @@ input { outline: none; }
   stroke-linejoin: round;
   pointer-events: none;
 }
-.scheme__label--major { font-size: 11.5px; fill: #fff; }
-.scheme__dot { cursor: pointer; }
-.scheme__dot:hover { filter: brightness(1.4); }
-.scheme__line { fill: none; stroke-linejoin: round; stroke-linecap: round; }
+.scheme__label--major { fill: #fff; font-weight: 700; }
+.scheme__dot { cursor: pointer; transition: opacity .15s; }
+.scheme__dot:hover { filter: brightness(1.45); }
+.scheme__line { fill: none; stroke-linejoin: round; stroke-linecap: round; transition: opacity .15s; }
+.scheme__roundel text { font-family: inherit; user-select: none; pointer-events: none; }
+.scheme__roundel circle { stroke: #0b1119; }
 .scheme__legend {
   position: absolute; left: 14px; bottom: 30px;
   z-index: 700;
-  display: flex; flex-wrap: wrap; gap: 6px 12px;
-  max-width: min(620px, calc(100% - 28px));
+  display: flex; flex-wrap: wrap; gap: 4px 14px;
+  max-width: min(680px, calc(100% - 28px));
   padding: 9px 12px;
   border-radius: 11px;
-  background: rgba(10, 14, 21, .8);
+  background: rgba(10, 14, 21, .82);
   border: 1px solid var(--line);
   font-size: 11px; color: var(--muted);
   backdrop-filter: blur(10px);
 }
 .scheme__legend b { color: #dbe4f2; font-weight: 600; }
+
+.scheme-controls {
+  position: absolute; right: 14px; bottom: 30px;
+  z-index: 800;
+  display: flex; flex-direction: column;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 11px;
+  background: rgba(15, 20, 29, .9);
+  border: 1px solid var(--line-strong);
+  backdrop-filter: blur(10px);
+}
+.scheme-controls button {
+  width: 34px; height: 32px;
+  display: grid; place-items: center;
+  border-radius: 8px;
+  font-size: 17px; font-weight: 600;
+  color: var(--text);
+  background: transparent;
+}
+.scheme-controls button:hover { background: var(--panel-3); }
+
+.scheme-tip {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  padding: 4px 9px;
+  border-radius: 7px;
+  background: rgba(13, 18, 27, .95);
+  border: 1px solid var(--line-strong);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 900;
+}
 
 /* ---------- Доступность ---------- */
 :focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }

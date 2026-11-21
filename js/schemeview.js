@@ -1,19 +1,25 @@
 /* ===========================================================
-   Режим «Схема»: SVG-полотно, построенное из реальных координат
-   (проекция Меркатора), с панорамированием и масштабированием.
-   Не зависит от заранее посчитанных координат, поэтому не может
-   «разъехаться» с данными.
+   Режим «Схема»: топологическая схема в духе Яндекс.Метро.
+
+   Геометрия приходит из data/scheme_layout.json — её считает
+   tools/build-scheme.mjs (линии под 45°/90°, равные интервалы,
+   копии станций стянуты в пересадочные узлы).
+
+   Здесь только отрисовка: линии, станции, пересадки, номера линий
+   на концах, подписи с разрешением наложений, панорамирование и зум.
    =========================================================== */
 
 const NS = 'http://www.w3.org/2000/svg';
-const K = 100000; // масштаб проекции, чтобы координаты были читаемыми числами
 
-function project(lat, lon) {
-  const x = (lon + 180) / 360;
-  const s = Math.sin((lat * Math.PI) / 180);
-  const y = 0.5 - Math.log((1 + s) / (1 - s)) / (4 * Math.PI);
-  return [x * K, y * K];
-}
+const STYLE = {
+  casing: 3.6,
+  lineWidth: { metro: 7, mcc: 6, mcd: 6, project: 5 },
+  stationR: 3.6,
+  transferR: 5.4,
+  labelFont: 11,
+  labelFontMajor: 11.5,
+  roundelR: 9,
+};
 
 function el(name, attrs = {}) {
   const node = document.createElementNS(NS, name);
@@ -28,218 +34,427 @@ export class SchemeView {
     this.container = container;
     this.svg = svg;
     this.hooks = hooks;
-    this.network = null;
+    this.layout = null;
     this.view = { x: 0, y: 0, w: 100, h: 100 };
-    this.defaultView = null;
+    this.base = null;
     this.visibleTypes = new Set(['metro', 'mcc', 'mcd', 'project']);
-    this.scale = 1;
-    this.gLines = el('g', { class: 'scheme__lines' });
-    this.gStations = el('g', { class: 'scheme__stations' });
-    this.gLabels = el('g', { class: 'scheme__labels' });
-    this.svg.append(this.gLines, this.gStations, this.gLabels);
+    this.showLabels = true;
+    this.unit = 1;
+    this.fitted = false;
+
+    this.defs = el('defs');
+    this.svg.append(this.defs);
+
+    this.gCasing = el('g', { class: 'scheme-casing' });
+    this.gLines = el('g', { class: 'scheme-lines' });
+    this.gTies = el('g', { class: 'scheme-ties' });
+    this.gStations = el('g', { class: 'scheme-stations' });
+    this.gLabels = el('g', { class: 'scheme-labels' });
+    this.gRoundels = el('g', { class: 'scheme-roundels' });
+    this.svg.append(this.gCasing, this.gLines, this.gTies, this.gStations, this.gLabels, this.gRoundels);
+
     this.bindInteraction();
   }
 
-  /* ---------- построение ---------- */
-  render(network) {
-    this.network = network;
-    this.points = new Map();
-    for (const place of network.places) {
-      this.points.set(place.name, project(place.lat, place.lon));
-    }
+  /* ---------- данные ---------- */
+  async load() {
+    const res = await fetch('data/scheme_layout.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error(`схема: HTTP ${res.status}`);
+    this.layout = await res.json();
+    this.base = { x: 0, y: 0, w: this.layout.meta.width, h: this.layout.meta.height };
+    this.view = { ...this.base };
+    this.render();
+  }
 
+  applyView() {
+    const v = this.view;
+    this.svg.setAttribute('viewBox', `${v.x} ${v.y} ${v.w} ${v.h}`);
+    this.updateScale();
+  }
+
+  updateScale() {
+    // пока контейнер скрыт, clientWidth = 0 — берём разумную заглушку,
+    // иначе масштаб получается абсурдным и все подписи «сталкиваются»
+    const pxWidth = this.svg.clientWidth || this.container.clientWidth || 1000;
+    this.unit = this.view.w / pxWidth;
+    this.styleAll();
+  }
+
+  styleAll() {
+    const u = this.unit;
+    for (const path of this.gLines.children) {
+      const type = path.dataset.type;
+      const w = (STYLE.lineWidth[type] || 6) * u;
+      path.setAttribute('stroke-width', w.toFixed(2));
+      path.setAttribute('stroke-dasharray', type === 'project' ? `${6 * u} ${5 * u}` : '');
+    }
+    for (const path of this.gCasing.children) {
+      const type = path.dataset.type;
+      const w = ((STYLE.lineWidth[type] || 6) + STYLE.casing) * u;
+      path.setAttribute('stroke-width', w.toFixed(2));
+    }
+    for (const node of this.gStations.children) {
+      const r = Number(node.dataset.r) || STYLE.stationR;
+      node.setAttribute('r', (r * u).toFixed(2));
+      node.setAttribute('stroke-width', ((node.dataset.sw || 1.6) * u).toFixed(2));
+    }
+    for (const tie of this.gTies.children) {
+      tie.setAttribute('stroke-width', (2 * u).toFixed(2));
+    }
+    for (const label of this.gLabels.children) {
+      const fs = (Number(label.dataset.fs) || STYLE.labelFont) * u;
+      label.setAttribute('font-size', fs.toFixed(2));
+      label.setAttribute('stroke-width', (3.2 * u).toFixed(2));
+      label.setAttribute('dx', (Number(label.dataset.dx) * u).toFixed(2));
+      label.setAttribute('dy', (Number(label.dataset.dy) * u).toFixed(2));
+    }
+    for (const g of this.gRoundels.children) {
+      const c = g.querySelector('circle');
+      const t = g.querySelector('text');
+      if (c) {
+        c.setAttribute('r', (STYLE.roundelR * u).toFixed(2));
+        c.setAttribute('stroke-width', (2.4 * u).toFixed(2));
+      }
+      if (t) t.setAttribute('font-size', (9.5 * u).toFixed(2));
+    }
+  }
+
+  /* ---------- отрисовка ---------- */
+  render() {
+    if (!this.layout) return;
+    const { stations, lines } = this.layout;
+
+    this.gCasing.replaceChildren();
     this.gLines.replaceChildren();
+    this.gTies.replaceChildren();
     this.gStations.replaceChildren();
     this.gLabels.replaceChildren();
-    this.stationNodes = new Map();
+    this.gRoundels.replaceChildren();
 
-    // границы
-    let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
-    for (const [x, y] of this.points.values()) {
-      if (x < minX) minX = x;
-      if (y < minY) minY = y;
-      if (x > maxX) maxX = x;
-      if (y > maxY) maxY = y;
-    }
-    const pad = Math.max(40, (maxX - minX) * 0.06);
-    this.defaultView = { x: minX - pad, y: minY - pad, w: (maxX - minX) + pad * 2, h: (maxY - minY) + pad * 2 };
-    this.view = { ...this.defaultView };
+    const d = (pts) => pts.map((p, i) => `${i ? 'L' : 'M'}${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' ');
 
-    // линии
-    for (const line of network.lines) {
-      const pts = line.stations
-        .map((s) => this.points.get(s.name))
-        .filter(Boolean);
-      if (pts.length < 2) continue;
-      const d = pts.map((p, i) => `${i ? 'L' : 'M'}${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' ');
-      const isProject = line.type === 'project';
-      const path = el('path', {
-        d,
-        class: 'scheme__line',
-        stroke: line.color,
-        'stroke-width': isProject ? 2.4 : 3.4,
-        'stroke-dasharray': isProject ? '6 5' : null,
-        'vector-effect': 'non-scaling-stroke',
-        opacity: isProject ? 0.92 : 0.97,
+    for (const line of lines) {
+      if (line.points.length < 2) continue;
+      const path = d(line.points);
+      const casing = el('path', {
+        d: path + (line.ring ? ' Z' : ''),
+        fill: 'none',
+        stroke: '#05080d',
+        'stroke-linejoin': 'round',
+        'stroke-linecap': 'round',
         'data-type': line.type,
+        'data-line': line.id,
       });
-      path.addEventListener('click', () => this.hooks.onLineClick?.(line));
-      this.gLines.appendChild(path);
+      const stroke = el('path', {
+        d: path + (line.ring ? ' Z' : ''),
+        fill: 'none',
+        stroke: line.color,
+        'stroke-linejoin': 'round',
+        'stroke-linecap': 'round',
+        'data-type': line.type,
+        'data-line': line.id,
+        class: 'scheme__line',
+      });
+      stroke.addEventListener('mouseenter', () => this.highlight(line.id));
+      stroke.addEventListener('mouseleave', () => this.highlight(null));
+      stroke.addEventListener('click', () => this.hooks.onLineClick?.(line));
+      this.gCasing.appendChild(casing);
+      this.gLines.appendChild(stroke);
     }
 
-    // станции + подписи с разрешением наложений
-    const labelCandidates = [];
-    for (const place of network.places) {
-      const [x, y] = this.points.get(place.name);
-      const isTransfer = place.isTransfer;
-      const node = el('circle', {
-        cx: x, cy: y,
-        class: 'scheme__dot',
-        fill: isTransfer ? '#0b1119' : '#0f1620',
-        stroke: isTransfer ? '#f4f7fc' : (place.lineRefs[0]?.color || '#8b95a7'),
-        'stroke-width': 1.5,
-        'data-name': place.name,
-      });
-      node.addEventListener('click', (e) => {
-        e.stopPropagation();
-        this.hooks.onStationClick?.(place);
-      });
-      this.stationNodes.set(place.name, node);
-      this.gStations.appendChild(node);
-
-      if (place.isTransfer || place.isTerminal) {
-        labelCandidates.push({
-          place,
-          x,
-          y,
-          rank: place.isTransfer ? 0 : 1,
-        });
+    // пересадочные узлы: если копии разошлись, рисуем переход
+    for (const st of stations) {
+      if (st.copies.length < 2) continue;
+      const uniq = [];
+      for (const [, x, y] of st.copies) {
+        if (!uniq.some((u) => Math.hypot(u[0] - x, u[1] - y) < 0.4)) uniq.push([x, y]);
+      }
+      for (let i = 1; i < uniq.length; i++) {
+        this.gTies.appendChild(el('line', {
+          x1: uniq[i - 1][0], y1: uniq[i - 1][1],
+          x2: uniq[i][0], y2: uniq[i][1],
+          stroke: '#e8eef8',
+          'stroke-linecap': 'round',
+          opacity: 0.85,
+        }));
       }
     }
 
-    // подпись ставим, только если она не перекрывает уже поставленные
-    const NOMINAL_SCALE = Math.max(0.55, Math.min(3.2, ((this.defaultView?.w || 460) / 1068) * 1.15));
-    const fs = 11 * NOMINAL_SCALE;
-    const placed = [];
-    const collides = (r) => placed.some((p) => !(r.x > p.x + p.w || r.x + r.w < p.x || r.y > p.y + p.h || r.y + r.h < p.y));
-
-    labelCandidates.sort((a, b) => a.rank - b.rank || a.place.name.length - b.place.name.length);
-    for (const cand of labelCandidates) {
-      const anchor = this.anchorFor(cand.x);
-      const width = cand.place.name.length * fs * 0.56;
-      const height = fs * 1.15;
-      const x = anchor === 'end' ? cand.x - 7 * NOMINAL_SCALE - width : cand.x + 7 * NOMINAL_SCALE;
-      const rect = { x, y: cand.y - height / 2, w: width, h: height };
-      if (collides(rect)) continue;
-      placed.push(rect);
-
-      const label = el('text', {
-        x: cand.x, y: cand.y,
-        class: 'scheme__label' + (cand.place.isTransfer ? ' scheme__label--major' : ''),
-        'data-name': cand.place.name,
-        'text-anchor': anchor,
-        dx: anchor === 'end' ? -8 : 8,
-        dy: 4,
+    for (const st of stations) {
+      const isTransfer = st.transfer;
+      const r = isTransfer ? Math.min(9, STYLE.transferR + st.spread * 0.35) : STYLE.stationR;
+      const node = el('circle', {
+        cx: st.x,
+        cy: st.y,
+        fill: isTransfer ? '#0b1119' : (this.lineColor(st.lines[0]) || '#8b95a7'),
+        stroke: isTransfer ? '#f4f7fc' : '#0a0e15',
+        'data-name': st.name,
+        'data-r': r,
+        'data-sw': isTransfer ? 2.4 : 1.6,
+        'data-project': st.project ? '1' : '0',
+        class: 'scheme__dot',
       });
-      label.textContent = cand.place.name;
-      this.gLabels.appendChild(label);
+      node.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.hooks.onStationClick?.(this.toPlace(st));
+      });
+      node.addEventListener('mouseenter', () => this.showTooltip(st, node));
+      node.addEventListener('mouseleave', () => this.hideTooltip());
+      this.gStations.appendChild(node);
     }
 
+    // номера линий на концах
+    for (const line of lines) {
+      if (!line.ref) continue;
+      const ends = [line.points[0], line.points[line.points.length - 1]];
+      for (const [x, y] of ends) {
+        const g = el('g', { 'data-line': line.id, class: 'scheme__roundel' });
+        g.append(
+          el('circle', { cx: x, cy: y, r: STYLE.roundelR, fill: line.color, stroke: '#0b1119' }),
+          el('text', {
+            x, y,
+            'text-anchor': 'middle',
+            'dominant-baseline': 'central',
+            fill: '#fff',
+            'font-weight': '700',
+            'font-size': 9.5,
+            'paint-order': 'stroke',
+            stroke: 'rgba(0,0,0,.25)',
+            'stroke-width': 1,
+          }),
+        );
+        g.lastChild.textContent = line.ref;
+        this.gRoundels.appendChild(g);
+      }
+    }
+
+    this.stationByName = new Map(stations.map((s) => [s.name, s]));
     this.applyVisibility();
     this.applyView();
+    this.layoutLabels();
   }
 
-  anchorFor(x) {
-    const mid = this.defaultView ? this.defaultView.x + this.defaultView.w / 2 : x;
-    return x <= mid ? 'start' : 'end';
+  lineColor(id) {
+    const line = this.layout?.lines.find((l) => l.id === id);
+    return line ? line.color : null;
   }
 
+  toPlace(st) {
+    return {
+      name: st.name,
+      lat: null,
+      lon: null,
+      isTransfer: st.transfer,
+      isTerminal: false,
+      hasProject: !!st.project,
+      hasActive: !st.project,
+      lineRefs: st.lines.map((id) => {
+        const line = this.layout.lines.find((l) => l.id === id);
+        return line ? { id, name: line.name, ref: line.ref, color: line.color, type: line.type } : null;
+      }).filter(Boolean),
+    };
+  }
+
+  showTooltip(st, node) {
+    const box = this.container.getBoundingClientRect();
+    const pt = node.getBoundingClientRect();
+    this.hideTooltip();
+    const tip = document.createElement('div');
+    tip.className = 'scheme-tip';
+    tip.textContent = st.name;
+    tip.style.left = `${pt.left - box.left + pt.width / 2}px`;
+    tip.style.top = `${pt.top - box.top - 10}px`;
+    this.container.appendChild(tip);
+    this.tip = tip;
+  }
+
+  hideTooltip() {
+    if (this.tip) { this.tip.remove(); this.tip = null; }
+  }
+
+  /* ---------- слои ---------- */
   setVisibleTypes(types) {
     this.visibleTypes = new Set(types);
     this.applyVisibility();
   }
 
+  setLabels(on) {
+    this.showLabels = on;
+    this.applyVisibility();
+    this.layoutLabels();
+  }
+
   applyVisibility() {
-    if (!this.network) return;
-    for (const path of this.gLines.children) {
-      path.style.display = this.visibleTypes.has(path.dataset.type) ? '' : 'none';
+    if (!this.layout) return;
+    for (const p of this.gLines.children) p.style.display = this.visibleTypes.has(p.dataset.type) ? '' : 'none';
+    for (const p of this.gCasing.children) p.style.display = this.visibleTypes.has(p.dataset.type) ? '' : 'none';
+    for (const g of this.gRoundels.children) {
+      const line = this.layout.lines.find((l) => l.id === g.dataset.line);
+      g.style.display = line && this.visibleTypes.has(line.type) ? '' : 'none';
     }
-    for (const place of this.network.places) {
-      const visible = place.lineRefs.some((l) => this.visibleTypes.has(l.type));
-      const node = this.stationNodes.get(place.name);
-      if (node) node.style.display = visible ? '' : 'none';
+    for (const node of this.gStations.children) {
+      const st = this.stationByName?.get(node.dataset.name);
+      const visible = st ? st.lines.some((id) => {
+        const line = this.layout.lines.find((l) => l.id === id);
+        return line && this.visibleTypes.has(line.type);
+      }) : true;
+      node.style.display = visible ? '' : 'none';
     }
-    for (const label of this.gLabels.children) {
-      const place = this.network.byName.get(label.dataset.name);
-      const visible = place ? place.lineRefs.some((l) => this.visibleTypes.has(l.type)) : false;
-      label.style.display = visible ? '' : 'none';
+    this.layoutLabels();
+  }
+
+  /* ---------- подписи ---------- */
+  layoutLabels() {
+    if (!this.layout) return;
+    this.gLabels.replaceChildren();
+    if (!this.showLabels) return;
+
+    const u = this.unit;
+    const zoom = this.base.w / this.view.w;
+    const showAll = zoom >= 1.55;
+    const fs = STYLE.labelFont * u;
+    const pad = 2 * u;
+
+    const visible = (st) => st.lines.some((id) => {
+      const line = this.layout.lines.find((l) => l.id === id);
+      return line && this.visibleTypes.has(line.type);
+    });
+
+    const candidates = this.layout.stations
+      .filter((st) => visible(st))
+      .filter((st) => showAll || st.transfer || st.lines.length > 1 || this.isLineEnd(st))
+      .sort((a, b) => (b.transfer ? 1 : 0) - (a.transfer ? 1 : 0) || a.name.length - b.name.length);
+
+    const placed = [];
+    const pxToUnit = (px) => px * u;
+    const margin = pxToUnit(2);
+    const hit = (r) => placed.some((p) => !(
+      r.x - margin > p.x + p.w || r.x + r.w + margin < p.x ||
+      r.y - margin > p.y + p.h || r.y + r.h + margin < p.y
+    ));
+
+    for (const st of candidates) {
+      const isMajor = st.transfer;
+      const fsPx = isMajor ? STYLE.labelFontMajor : STYLE.labelFont;
+      // размеры калиброваны по реальному браузеру: рамка текста шире глифов
+      const wText = pxToUnit(st.name.length * (isMajor ? 6.7 : 6.4) + 16);
+      const hText = pxToUnit(fsPx * 1.95);
+      const off = pxToUnit(7);
+      const baseShift = pxToUnit(fsPx * 0.36);
+
+      const variants = [
+        { x: st.x + off, y: st.y - hText / 2, rect: { x: st.x + off, y: st.y - hText / 2, w: wText, h: hText }, anchor: 'start', dx: off, dy: baseShift },
+        { x: st.x - off, y: st.y - hText / 2, rect: { x: st.x - off - wText, y: st.y - hText / 2, w: wText, h: hText }, anchor: 'end', dx: -off, dy: baseShift },
+        { x: st.x, y: st.y - off, rect: { x: st.x - wText / 2, y: st.y - off - hText, w: wText, h: hText }, anchor: 'middle', dx: 0, dy: -pxToUnit(fsPx * 0.25) },
+        { x: st.x, y: st.y + off, rect: { x: st.x - wText / 2, y: st.y + off, w: wText, h: hText }, anchor: 'middle', dx: 0, dy: pxToUnit(fsPx * 1.15) },
+      ];
+
+      let chosen = null;
+      for (const v of variants) {
+        if (!hit(v.rect)) { chosen = v; break; }
+      }
+      if (!chosen) continue;
+      placed.push(chosen.rect);
+
+      const text = el('text', {
+        x: chosen.x,
+        y: chosen.y,
+        class: 'scheme__label' + (isMajor ? ' scheme__label--major' : ''),
+        'text-anchor': chosen.anchor,
+        'data-fs': fsPx,
+        'data-dx': +(chosen.dx / u).toFixed(2),
+        'data-dy': +(chosen.dy / u).toFixed(2),
+        'data-name': st.name,
+      });
+      text.textContent = st.name;
+      this.gLabels.appendChild(text);
+    }
+    this.styleAll();
+  }
+
+  isLineEnd(st) {
+    for (const line of this.layout.lines) {
+      const s = line.stations;
+      if (s[0] === st.name || s[s.length - 1] === st.name) return true;
+    }
+    return false;
+  }
+
+  highlight(lineId) {
+    for (const p of this.gLines.children) {
+      p.style.opacity = !lineId || p.dataset.line === lineId ? '' : '0.18';
+    }
+    for (const p of this.gCasing.children) {
+      p.style.opacity = !lineId || p.dataset.line === lineId ? '' : '0.18';
+    }
+    for (const node of this.gStations.children) {
+      if (!lineId) { node.style.opacity = ''; continue; }
+      const st = this.stationByName.get(node.dataset.name);
+      node.style.opacity = st && st.lines.includes(lineId) ? '' : '0.25';
     }
   }
 
   /* ---------- вид ---------- */
-  applyView() {
-    const v = this.view;
-    this.svg.setAttribute('viewBox', `${v.x} ${v.y} ${v.w} ${v.h}`);
-    this.updateScales();
-  }
-
-  updateScales() {
-    const width = this.svg.clientWidth || this.container.clientWidth || 1;
-    this.scale = this.view.w / width;
-    const s = this.scale;
-    const base = Math.max(0.55, Math.min(3.2, s * 1.15));
-    for (const node of this.stationNodes.values()) {
-      const place = this.network.byName.get(node.dataset.name);
-      const isTransfer = place && place.isTransfer;
-      node.setAttribute('r', ((isTransfer ? 4.4 : 3.2) * base).toFixed(2));
-      node.setAttribute('stroke-width', ((isTransfer ? 1.9 : 1.5) * base).toFixed(2));
-    }
-    for (const label of this.gLabels.children) {
-      label.setAttribute('font-size', (11 * base).toFixed(2) + 'px');
-      label.setAttribute('stroke-width', (3 * base).toFixed(2) + 'px');
-      label.setAttribute('dx', label.getAttribute('text-anchor') === 'end' ? -7 * base : 7 * base);
-    }
-    for (const path of this.gLines.children) {
-      path.setAttribute('stroke-width', (path.getAttribute('stroke-dasharray') ? 2.4 : 3.4) * base);
-    }
-  }
-
-  fit() {
-    if (!this.defaultView) return;
-    this.view = { ...this.defaultView };
+  fit(view = null) {
+    if (!this.base) return;
+    this.view = view ? { ...view } : { ...this.base };
     this.applyView();
+    this.layoutLabels();
+  }
+
+  /** Границы ядра сети (метро + МЦК) — стартовый кадр на телефоне. */
+  coreBox(padding = 0.05) {
+    if (!this.base) return null;
+    let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    for (const line of this.layout.lines) {
+      if (line.type === 'project' || line.type === 'mcd') continue;
+      for (const [x, y] of line.points) {
+        if (x < minX) minX = x;
+        if (y < minY) minY = y;
+        if (x > maxX) maxX = x;
+        if (y > maxY) maxY = y;
+      }
+    }
+    if (minX > maxX) return this.base;
+    const w = maxX - minX;
+    const h = maxY - minY;
+    return { x: minX - w * padding, y: minY - h * padding, w: w * (1 + padding * 2), h: h * (1 + padding * 2) };
   }
 
   zoomBy(factor, cx, cy) {
     const v = this.view;
-    const nextW = Math.min(this.defaultView.w * 2.2, Math.max(this.defaultView.w / 14, v.w * factor));
+    const minW = this.base.w / 12;
+    const maxW = this.base.w * 1.6;
+    const nextW = Math.min(maxW, Math.max(minW, v.w * factor));
     const k = nextW / v.w;
-    const anchorX = cx ?? v.x + v.w / 2;
-    const anchorY = cy ?? v.y + v.h / 2;
+    const ax = cx ?? v.x + v.w / 2;
+    const ay = cy ?? v.y + v.h / 2;
     this.view = {
-      x: anchorX - (anchorX - v.x) * k,
-      y: anchorY - (anchorY - v.y) * k,
+      x: ax - (ax - v.x) * k,
+      y: ay - (ay - v.y) * k,
       w: nextW,
       h: v.h * k,
     };
     this.applyView();
+    this.requestLabelRefresh();
+    if (this.hooks.onViewChange) this.hooks.onViewChange(this.view, this.base);
+  }
+
+  requestLabelRefresh() {
+    if (this.labelTimer) clearTimeout(this.labelTimer);
+    this.labelTimer = setTimeout(() => this.layoutLabels(), 120);
   }
 
   clientToView(clientX, clientY) {
     const rect = this.svg.getBoundingClientRect();
-    const aspect = rect.width / rect.height;
-    const viewAspect = this.view.w / this.view.h;
-    let x0 = this.view.x, y0 = this.view.y, w = this.view.w, h = this.view.h;
-    if (viewAspect > aspect) {
-      const newH = w / aspect;
-      y0 -= (newH - h) / 2; h = newH;
-    } else {
-      const newW = h * aspect;
-      x0 -= (newW - w) / 2; w = newW;
-    }
+    const pxW = rect.width || 1;
+    const pxH = rect.height || 1;
+    const scale = Math.min(pxW / this.view.w, pxH / this.view.h);
+    const offX = (pxW - this.view.w * scale) / 2;
+    const offY = (pxH - this.view.h * scale) / 2;
     return {
-      x: x0 + ((clientX - rect.left) / rect.width) * w,
-      y: y0 + ((clientY - rect.top) / rect.height) * h,
+      x: this.view.x + (clientX - rect.left - offX) / scale,
+      y: this.view.y + (clientY - rect.top - offY) / scale,
     };
   }
 
@@ -260,23 +475,28 @@ export class SchemeView {
     svg.addEventListener('pointermove', (e) => {
       if (!dragging) return;
       const rect = svg.getBoundingClientRect();
-      const dx = ((e.clientX - dragging.x) / rect.width) * dragging.view.w;
-      const dy = ((e.clientY - dragging.y) / rect.height) * dragging.view.h;
-      this.view = { ...dragging.view, x: dragging.view.x - dx, y: dragging.view.y - dy };
+      const scale = Math.min(rect.width / dragging.view.w, rect.height / dragging.view.h) || 1;
+      this.view = {
+        ...dragging.view,
+        x: dragging.view.x - (e.clientX - dragging.x) / scale,
+        y: dragging.view.y - (e.clientY - dragging.y) / scale,
+      };
       this.applyView();
     });
     const stop = (e) => {
       if (!dragging) return;
       dragging = null;
       try { svg.releasePointerCapture(e.pointerId); } catch { /* уже отпущен */ }
+      this.requestLabelRefresh();
+      if (this.hooks.onViewChange) this.hooks.onViewChange(this.view, this.base);
     };
     svg.addEventListener('pointerup', stop);
     svg.addEventListener('pointercancel', stop);
     svg.addEventListener('dblclick', () => this.fit());
+    svg.addEventListener('click', () => this.hideTooltip());
   }
 
-  resize() { this.updateScales(); }
-
+  resize() { this.updateScale(); this.layoutLabels(); }
   zoomIn() { this.zoomBy(0.8); }
   zoomOut() { this.zoomBy(1.25); }
 }

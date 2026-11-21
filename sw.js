@@ -2,7 +2,7 @@
    Важно: HTML отдаётся по принципу «сеть, потом кэш»,
    иначе обновления сайта никогда не доезжают до браузера. */
 
-const CACHE = 'transport-podmoskovye-v3';
+const CACHE = 'transport-podmoskovye-v4';
 
 const PRECACHE = [
   './',
@@ -17,6 +17,7 @@ const PRECACHE = [
   './vendor/leaflet/leaflet.css',
   './data/lines.json',
   './data/project_lines.json',
+  './data/scheme_layout.json',
   './manifest.json',
   './icon.svg',
 ];
