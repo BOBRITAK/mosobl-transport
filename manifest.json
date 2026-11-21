@@ -1,11 +1,21 @@
 {
   "name": "Транспорт Подмосковья",
   "short_name": "Транспорт МО",
-  "start_url": "./index.html",
+  "description": "Карта и схема транспорта Москвы и Подмосковья: метро, МЦК, МЦД D1–D4 и проектируемые линии.",
+  "lang": "ru",
+  "dir": "ltr",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#0b0e14",
-  "theme_color": "#0b0e14",
-  "lang": "ru",
-  "icons": [{"src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}]
+  "orientation": "any",
+  "background_color": "#0b0f17",
+  "theme_color": "#0b0f17",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
 }

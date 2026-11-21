@@ -1,5 +1,80 @@
-const CACHE = "mosobl-transport-v1";
-const ASSETS = ["./", "./index.html", "./manifest.json", "./icon.svg", "./data/lines.js", "./data/stations.js", "./data/lines.json"];
-self.addEventListener("install", function(e){ e.waitUntil(caches.open(CACHE).then(function(c){ return c.addAll(ASSETS); }).then(function(){ return self.skipWaiting(); })); });
-self.addEventListener("activate", function(e){ e.waitUntil(caches.keys().then(function(ks){ return Promise.all(ks.filter(function(k){ return k !== CACHE; }).map(function(k){ return caches.delete(k); })); })); });
-self.addEventListener("fetch", function(e){ if(e.request.method !== "GET") return; e.respondWith(caches.match(e.request).then(function(r){ return r || fetch(e.request); })); });
+/* Service worker: офлайн-доступ и мгновенный сброс старого кэша.
+   Важно: HTML отдаётся по принципу «сеть, потом кэш»,
+   иначе обновления сайта никогда не доезжают до браузера. */
+
+const CACHE = 'transport-podmoskovye-v3';
+
+const PRECACHE = [
+  './',
+  './index.html',
+  './css/app.css',
+  './js/main.js',
+  './js/network.js',
+  './js/mapview.js',
+  './js/schemeview.js',
+  './js/router.js',
+  './vendor/leaflet/leaflet.js',
+  './vendor/leaflet/leaflet.css',
+  './data/lines.json',
+  './data/project_lines.json',
+  './manifest.json',
+  './icon.svg',
+];
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE)
+      .then((cache) => cache.addAll(PRECACHE))
+      .catch(() => undefined)
+      .then(() => self.skipWaiting())
+  );
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys()
+      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+      .then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch', (event) => {
+  const { request } = event;
+  if (request.method !== 'GET') return;
+
+  const url = new URL(request.url);
+  const sameOrigin = url.origin === self.location.origin;
+
+  // HTML — всегда сначала сеть
+  if (request.mode === 'navigate' || (sameOrigin && request.destination === 'document')) {
+    event.respondWith(
+      fetch(request)
+        .then((res) => {
+          const copy = res.clone();
+          caches.open(CACHE).then((cache) => cache.put(request, copy)).catch(() => undefined);
+          return res;
+        })
+        .catch(() => caches.match(request).then((hit) => hit || caches.match('./index.html')))
+    );
+    return;
+  }
+
+  // свои данные и код — кэш, но с обновлением в фоне
+  if (sameOrigin && /\/data\/|\/js\/|\/css\/|\/vendor\//.test(url.pathname)) {
+    event.respondWith(
+      caches.match(request).then((hit) => {
+        const network = fetch(request)
+          .then((res) => {
+            const copy = res.clone();
+            caches.open(CACHE).then((cache) => cache.put(request, copy)).catch(() => undefined);
+            return res;
+          })
+          .catch(() => hit);
+        return hit || network;
+      })
+    );
+    return;
+  }
+
+  // тайлы и всё внешнее — сеть, без кэша
+});
