@@ -2,6 +2,11 @@ package ru.podmoskovye.transport.ui
 
 import android.content.Context
 import androidx.compose.foundation.background
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
@@ -183,47 +188,82 @@ fun MainContent(
             )
         }
 
-        // верхняя панель: поиск и переключатель режимов
-        Column(Modifier.fillMaxWidth().padding(12.dp)) {
+        // верхняя панель: компактный поиск и переключатель режимов
+        Column(
+            Modifier
+                .fillMaxWidth()
+                .statusBarsPadding()
+                .padding(horizontal = 10.dp, vertical = 8.dp)
+        ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                OutlinedTextField(
-                    value = query,
-                    onValueChange = { query = it },
-                    placeholder = { Text("Станция, линия, город", color = Pal.Muted2) },
-                    singleLine = true,
-                    colors = OutlinedTextFieldDefaults.colors(
-                        focusedContainerColor = Pal.Panel,
-                        unfocusedContainerColor = Pal.Panel,
-                        focusedBorderColor = Pal.Accent,
-                        unfocusedBorderColor = Pal.Line,
-                        focusedTextColor = Pal.Text,
-                        unfocusedTextColor = Pal.Text,
-                    ),
-                    shape = RoundedCornerShape(14.dp),
-                    modifier = Modifier.weight(1f),
-                )
-                Spacer(Modifier.width(8.dp))
-                Button(
-                    onClick = { mode = if (mode == Mode.MAP) Mode.SCHEME else Mode.MAP },
-                    colors = ButtonDefaults.buttonColors(containerColor = Pal.PanelHigh),
-                    contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 12.dp),
-                    modifier = Modifier.height(56.dp),
+                // компактное поле поиска: 44dp вместо 56dp
+                Row(
+                    Modifier
+                        .weight(1f)
+                        .height(44.dp)
+                        .clip(RoundedCornerShape(12.dp))
+                        .background(Pal.Panel)
+                        .border(1.dp, if (query.isNotEmpty()) Pal.Accent else Pal.Line, RoundedCornerShape(12.dp))
+                        .padding(horizontal = 10.dp),
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Text(if (mode == Mode.MAP) "Схема" else "Карта", color = Pal.Text, fontSize = 13.sp)
+                    Text("⌕", color = Pal.Muted2, fontSize = 16.sp)
+                    Spacer(Modifier.width(6.dp))
+                    BasicTextField(
+                        value = query,
+                        onValueChange = { query = it },
+                        singleLine = true,
+                        textStyle = TextStyle(color = Pal.Text, fontSize = 14.sp),
+                        cursorBrush = SolidColor(Pal.Accent),
+                        modifier = Modifier.weight(1f),
+                        decorationBox = { inner ->
+                            if (query.isEmpty()) {
+                                Text("Станция, линия, город", color = Pal.Muted2, fontSize = 13.sp)
+                            }
+                            inner()
+                        },
+                    )
+                    if (query.isNotEmpty()) {
+                        Text(
+                            "✕",
+                            color = Pal.Muted2,
+                            fontSize = 13.sp,
+                            modifier = Modifier
+                                .clip(CircleShape)
+                                .clickable { query = "" }
+                                .padding(horizontal = 6.dp, vertical = 4.dp),
+                        )
+                    }
+                }
+
+                Spacer(Modifier.width(8.dp))
+
+                // переключатель «Карта / Схема» — сегментированный, компактный
+                Row(
+                    Modifier
+                        .height(44.dp)
+                        .clip(RoundedCornerShape(12.dp))
+                        .background(Pal.Panel)
+                        .padding(3.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    ModeTab("Карта", mode == Mode.MAP) { mode = Mode.MAP }
+                    ModeTab("Схема", mode == Mode.SCHEME) { mode = Mode.SCHEME }
                 }
             }
 
             if (query.isNotBlank()) {
                 Card(
                     colors = CardDefaults.cardColors(containerColor = Pal.Panel),
-                    shape = RoundedCornerShape(14.dp),
-                    modifier = Modifier.fillMaxWidth().padding(top = 6.dp).heightIn(max = 320.dp),
+                    shape = RoundedCornerShape(12.dp),
+                    modifier = Modifier.fillMaxWidth().padding(top = 6.dp).heightIn(max = 300.dp),
                 ) {
                     LazyColumn {
                         items(results) { place ->
                             Row(
                                 Modifier.fillMaxWidth()
-                                    .padding(horizontal = 12.dp, vertical = 10.dp),
+                                    .clickable { selected = place; query = "" }
+                                    .padding(horizontal = 12.dp, vertical = 9.dp),
                                 verticalAlignment = Alignment.CenterVertically,
                             ) {
                                 Box(
@@ -249,7 +289,7 @@ fun MainContent(
             }
 
             Row(
-                Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()).padding(top = 8.dp),
+                Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()).padding(top = 6.dp),
                 horizontalArrangement = Arrangement.spacedBy(6.dp),
             ) {
                 layerChip("Метро", "metro", layers) { layers = toggle(layers, "metro") }
@@ -669,5 +709,20 @@ fun plural(n: Int, one: String, few: String, many: String): String {
         mod10 == 1 && mod100 != 11 -> one
         mod10 in 2..4 && (mod100 < 10 || mod100 >= 20) -> few
         else -> many
+    }
+}
+
+/** Компактная вкладка переключения «Карта / Схема». */
+@Composable
+private fun ModeTab(label: String, active: Boolean, onClick: () -> Unit) {
+    Box(
+        Modifier
+            .clip(RoundedCornerShape(9.dp))
+            .background(if (active) Pal.PanelHigh else androidx.compose.ui.graphics.Color.Transparent)
+            .clickable(onClick = onClick)
+            .padding(horizontal = 10.dp, vertical = 6.dp),
+        contentAlignment = Alignment.Center,
+    ) {
+        Text(label, color = if (active) Pal.Text else Pal.Muted2, fontSize = 12.sp)
     }
 }

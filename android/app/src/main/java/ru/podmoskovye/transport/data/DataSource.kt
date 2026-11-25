@@ -13,10 +13,13 @@ object DataSource {
         context.assets.open(name).bufferedReader().use { it.readText() }
 
     fun loadNetwork(context: Context): Network {
+        val t0 = System.nanoTime()
         val base = JSONObject(readAsset(context, "lines.json"))
         val project = JSONObject(readAsset(context, "project_lines.json"))
         val cities = JSONObject(readAsset(context, "cities.json"))
-        return Model.buildNetwork(base, project, cities)
+        val network = Model.buildNetwork(base, project, cities)
+        PerfLog.record("network_load_ms", (System.nanoTime() - t0) / 1_000_000)
+        return network
     }
 
     fun loadScheme(context: Context): JSONObject = JSONObject(readAsset(context, "scheme_layout.json"))

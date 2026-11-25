@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Иконка приложения: буква «Т», сквозь которую проходят транспортные линии
+     со станциями. Нарисована векторно, поэтому чёткая на любом размере.
+     Холст 108x108, безопасная зона Adaptive Icon — центральные 66dp. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Линии метро: три ветки, проходящие сквозь букву -->
+    <path
+        android:pathData="M20,78 L42,62 L64,64 L88,40"
+        android:strokeColor="#FF3A55"
+        android:strokeWidth="7"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:pathData="M22,38 L44,56 L68,74 L88,80"
+        android:strokeColor="#2F8BFF"
+        android:strokeWidth="7"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:pathData="M18,56 L40,52 L62,30 L88,26"
+        android:strokeColor="#2FBF71"
+        android:strokeWidth="7"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- Станции на линиях -->
+    <path android:pathData="M32,70 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" android:fillColor="#0B1220" />
+    <path android:pathData="M32,70 m-3,0 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0" android:fillColor="#FFFFFF" />
+
+    <path android:pathData="M74,68 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" android:fillColor="#0B1220" />
+    <path android:pathData="M74,68 m-3,0 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0" android:fillColor="#FFFFFF" />
+
+    <path android:pathData="M34,52 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" android:fillColor="#0B1220" />
+    <path android:pathData="M34,52 m-3,0 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0" android:fillColor="#FFFFFF" />
+
+    <path android:pathData="M78,33 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" android:fillColor="#0B1220" />
+    <path android:pathData="M78,33 m-3,0 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0" android:fillColor="#FFFFFF" />
+
+    <!-- Буква Т поверх линий -->
+    <path
+        android:pathData="M33,32 m0,6 a6,6 0 0,1 6,-6 h30 a6,6 0 0,1 6,6 v0 a6,6 0 0,1 -6,6 h-30 a6,6 0 0,1 -6,-6 z"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:pathData="M48,44 m0,4 a4,4 0 0,1 4,-4 h4 a4,4 0 0,1 4,4 v34 a4,4 0 0,1 -4,4 h-4 a4,4 0 0,1 -4,-4 z"
+        android:fillColor="#FFFFFF" />
+</vector>

@@ -71,6 +71,9 @@ class ScreenshotTest {
             }
         }
         composeRule.waitForIdle()
+        // карта и схема готовят данные в фоне — даём им завершиться
+        Thread.sleep(1200)
+        composeRule.waitForIdle()
         composeRule.onRoot().captureRoboImage("build/screenshots/$name.png")
     }
 
